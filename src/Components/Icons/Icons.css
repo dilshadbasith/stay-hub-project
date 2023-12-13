@@ -1,0 +1,127 @@
+.icon-div{
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+
+}
+.icon-sub-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    opacity: 0.5;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+}
+.icon-sub-div:hover{
+    opacity: 1;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    transition: all 0.3s;
+}
+.link-image{
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+}
+.link-label{
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+.selected-box{
+    opacity: 1;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    transition: all 0.3s;
+}
+.selected-label{
+    color: black;
+}
+
+
+
+
+
+.icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .icon-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    overflow: hidden;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+    margin: 0 30px; /* Add margin to prevent overlap */
+  }
+  
+  .icon-sub-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    opacity: 0.5;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+  }
+  
+  .icon-sub-div:hover {
+    opacity: 1;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    transition: all 0.3s;
+  }
+  
+  .link-image {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+  }
+  
+  .link-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+  }
+  
+  .selected-box {
+    opacity: 1;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    transition: all 0.3s;
+  }
+  
+  .selected-label {
+    color: black;
+  }
+  
+  .arrow-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #fff; /* Set background color as needed */
+    color: #000; /* Set text color as needed */
+    font-size: 20px;
+    border: 1px solid #ccc; /* Add border for a stylish look */
+    border-radius: 5px; /* Add border radius for a rounded look */
+  }
+  
+  .left-arrow {
+    left: 0;
+  }
+  
+  .right-arrow {
+    right: 0;
+  }
+  
