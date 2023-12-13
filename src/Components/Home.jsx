@@ -1,6 +1,7 @@
 import React from 'react'
 import Navigationbar from './Header/Navigationbar'
 import Icons from './Icons/Icons'
+import ListCards from './Cards/ListCards'
 
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
     <div>
       <Navigationbar/>  
       <Icons/>
+      <ListCards/>
     </div>
   )
 }
