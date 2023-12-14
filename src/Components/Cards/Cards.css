@@ -4,22 +4,48 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 1rem 3rem;
-    gap: .77rem;
+    gap: 2rem;
+    
     
 }
-.card-img{
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-    border-radius: 1rem;
-}
+.card-img {
+    height: 270px;
+    width: 270px;
+    object-fit:cover;
+  
+    
+  }
 .card-info{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+   
 }
 .card-rating{
     display: flex;
     align-items: center;
     gap: .25rem;
 }
+.swiper-container {
+    height: 270px;
+    width: 270px;
+    overflow: hidden;
+    border-radius: 1rem;
+   
+   
+  }
+  .property-card {
+    margin-bottom: 2rem;
+    z-index: -1;
+  }
+  .property-card .swiper-pagination-bullet-active {
+    background-color: white !important;
+  }
+  /* Change the color of Swiper navigation buttons */
+.swiper-button-prev::after,
+.swiper-button-next::after{
+  color: #ffffff; /* Replace with your desired color */
+}
+
+/* Change the background color of Swiper navigation buttons */
+

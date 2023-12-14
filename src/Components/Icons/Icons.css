@@ -4,6 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     overflow-x: auto;
+    z-index: -1;
 
 }
 .icon-sub-div{
@@ -115,6 +116,7 @@
     font-size: 20px;
     border: 1px solid #ccc; /* Add border for a stylish look */
     border-radius: 5px; /* Add border radius for a rounded look */
+    z-index: -1;
   }
   
   .left-arrow {

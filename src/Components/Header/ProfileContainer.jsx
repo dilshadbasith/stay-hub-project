@@ -4,6 +4,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Avatar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useContext } from "react";
+import { myContext } from "../Context";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -14,6 +16,7 @@ export default function BasicMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const {modal,setModal}=useContext(myContext)
 
   return (
     <div>
@@ -40,7 +43,7 @@ export default function BasicMenu() {
         sx={{".MuiPaper-root":{borderRadius:"1rem"}}}
       >
         <MenuItem onClick={handleClose}>SignUp</MenuItem>
-        <MenuItem onClick={handleClose}>Login</MenuItem><br />
+        <MenuItem onClick={()=>{setModal(!modal);setAnchorEl(null);}}>Login</MenuItem><br />
         <MenuItem onClick={handleClose}>Airbnb your home</MenuItem>
         <MenuItem onClick={handleClose}>Help Centre</MenuItem>
       </Menu>
