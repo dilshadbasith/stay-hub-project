@@ -36,7 +36,7 @@
   }
   .property-card {
     margin-bottom: 2rem;
-    z-index: -1;
+    /* z-index: -1; */
   }
   .property-card .swiper-pagination-bullet-active {
     background-color: white !important;
@@ -45,7 +45,7 @@
 .swiper-button-prev::after,
 .swiper-button-next::after{
   color: #ffffff; /* Replace with your desired color */
-}
+}/* Change the background color of Swiper navigation buttons */
 
-/* Change the background color of Swiper navigation buttons */
+
 

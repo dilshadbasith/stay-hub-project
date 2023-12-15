@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../Modals/LoginModal.css'
+import { myContext } from '../Context'
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 
 function LoginModal() {
-  
+  const {modal,setModal}=useContext(myContext)
 
+  const toggleModal=()=>{
+    setModal(!modal)
+  }
 
   return (
     <div>
@@ -15,6 +20,7 @@ function LoginModal() {
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quos ea ipsa, nesciunt aliquam nobis rem cupiditate exercitationem fugiat quidem enim sapiente necessitatibus error placeat atque obcaecati soluta quas laboriosam facere voluptatem, quae consequuntur beatae rerum molestiae. Sed, vel. Nulla, vitae. Atque quos enim ea sequi molestias! Nemo, soluta culpa?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, omnis commodi. Maiores sunt facere voluptatum accusantium eos. Cum ad dolores nihil dolorum, rerum impedit voluptatum inventore commodi quod corrupti rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore vero impedit doloribus aliquam dolorem commodi id eos maxime ex magni repudiandae sint labore, exercitationem corrupti autem delectus rerum eligendi suscipit.
                 </p>
+                <button onClick={toggleModal} className='close-modal'><CloseRoundedIcon/></button>
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 1.5  ;
+    z-index: 1000  ;
     box-shadow: 0 3px 3px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
 }
 .logo{
