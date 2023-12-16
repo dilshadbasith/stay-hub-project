@@ -33,6 +33,7 @@ export default function DialogWithForm() {
             <Input label="Fullname" size="lg" />
             <Input label="Email" size="lg" />
             <Input label="Mobile" size="lg" />
+            <Input label="Username" size="lg" />
             <Input label="Password" size="lg" />
             <div className="-ml-2.5 -mt-3">
               <Checkbox label="Remember Me" />
@@ -48,7 +49,7 @@ export default function DialogWithForm() {
               SignUp
             </Button>
             <Typography variant="small" className="mt-4 flex justify-center">
-              Don&apos;t have an account?
+              Already have an account?
               <Typography
                 as="a"
                 href="#signup"

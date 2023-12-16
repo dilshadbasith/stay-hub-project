@@ -49,10 +49,7 @@ function LoginModal() {
             <Typography variant="h4" color="red" className="text-center">
               LOGIN
             </Typography>
-
-            <Input label="Fullname" size="lg" />
-            <Input label="Email" size="lg" />
-            <Input label="Mobile" size="lg" />
+            <Input label="Username" size="lg" />
             <Input label="Password" size="lg" />
             <div className="-ml-2.5 -mt-3">
               <Checkbox label="Remember Me" />
@@ -77,7 +74,7 @@ function LoginModal() {
                 className="ml-1 font-bold"
                 onClick={handleLoginOpen}
               >
-                SignIn
+                SignUp
               </Typography>
             </Typography>
           </CardFooter>
