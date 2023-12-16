@@ -16,7 +16,7 @@ export default function BasicMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const {modal,setModal}=useContext(myContext)
+  const {handleOpen,handleLoginOpen}=useContext(myContext)
 
   return (
     <div>
@@ -42,8 +42,8 @@ export default function BasicMenu() {
         }}
         sx={{".MuiPaper-root":{borderRadius:"1rem"}}}
       >
-        <MenuItem onClick={handleClose}>SignUp</MenuItem>
-        <MenuItem onClick={()=>{setModal(!modal);setAnchorEl(null);}}>Login</MenuItem><br />
+        <MenuItem onClick={()=>{handleOpen();setAnchorEl(null)}}>SignUp</MenuItem>
+        <MenuItem onClick={()=>{handleLoginOpen();setAnchorEl(null);}}>Login</MenuItem><br />
         <MenuItem onClick={handleClose}>Airbnb your home</MenuItem>
         <MenuItem onClick={handleClose}>Help Centre</MenuItem>
       </Menu>

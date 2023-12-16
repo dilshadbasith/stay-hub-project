@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import "../Modals/LoginModal.css";
-import { myContext } from "../Context";
 import {
   Button,
   Dialog,
@@ -12,42 +10,24 @@ import {
   Input,
   Checkbox,
 } from "@material-tailwind/react";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { TextField } from "@mui/material";
+import { myContext } from "../Context";
 
-function LoginModal() {
-  // const { modal, setModal } = useContext(myContext);
-  const {handleLoginOpen}=useContext(myContext)
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // };
+export default function DialogWithForm() {
+  const {handleOpen}=useContext(myContext)
 
   return (
-    <div>
-      {/* <div className="modal">
-        <div className="overlay"></div>
-        <div className="modal-content">
-          <h2 className="login">LOGIN</h2>
-          <div className="text-div">
-            <TextField variant="outlined" label="Username"></TextField>
-            <TextField variant="outlined" label="Password"></TextField>
-          </div>
-
-          <button onClick={toggleModal} className="close-modal">
-            <CloseRoundedIcon />
-          </button>
-        </div>
-      </div> */}
+    <>
+      {/* <Button onClick={handleOpen}>Sign In</Button> */}
       <Dialog
         size="xs"
         open={open}
-        handler={handleLoginOpen}
+        handler={handleOpen}
         className="bg-transparent shadow-none"
       >
         <Card className="mx-auto w-full max-w-[24rem]">
           <CardBody className="flex flex-col gap-4">
             <Typography variant="h4" color="red" className="text-center">
-              LOGIN
+              Register
             </Typography>
 
             <Input label="Fullname" size="lg" />
@@ -61,11 +41,11 @@ function LoginModal() {
           <CardFooter className="pt-0">
             <Button
               variant="gradient"
-              onClick={handleLoginOpen}
+              onClick={handleOpen}
               fullWidth
               color="red"
             >
-              Sign In
+              SignUp
             </Button>
             <Typography variant="small" className="mt-4 flex justify-center">
               Don&apos;t have an account?
@@ -75,7 +55,7 @@ function LoginModal() {
                 variant="small"
                 color="red"
                 className="ml-1 font-bold"
-                onClick={handleLoginOpen}
+                onClick={handleOpen}
               >
                 SignIn
               </Typography>
@@ -83,8 +63,6 @@ function LoginModal() {
           </CardFooter>
         </Card>
       </Dialog>
-    </div>
+    </>
   );
 }
-
-export default LoginModal;
