@@ -1,15 +1,18 @@
-
 import React from "react";
-import './App.css'
+import "./App.css";
 
-import Home from './Components/Home'
-import { myContext } from './Components/Context'
-import { useState } from 'react'
-
+import Home from "./Components/Home";
+import { myContext } from "./Components/Context";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import LoginModal from "./Components/Modals/LoginModal";
+import DialogWithForm from "./Components/Modals/RegisterModal";
+import BrowseCards from "./Components/Cards/BrowseCards";
+import { list } from "./Components/Assets/CardsLists";
 
 function App() {
-  const [modal,setModal]=useState(false)
-
+  const [cards,setCards]=useState(list)
+  const [modal, setModal] = useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
   const [loginOpen, setLoginOpen] = React.useState(false);
@@ -17,12 +20,28 @@ function App() {
 
   return (
     <>
-    <myContext.Provider value={{modal,setModal,open,setOpen,handleOpen,loginOpen,setLoginOpen,handleLoginOpen}}>
-    <Home/>
-    </myContext.Provider>
-      
+      <myContext.Provider
+        value={{
+          modal,
+          setModal,
+          open,
+          setOpen,
+          handleOpen,
+          loginOpen,
+          setLoginOpen,
+          handleLoginOpen,
+          cards,
+          setCards
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/browsecard/:id" element={<BrowseCards />}/>
+          
+        </Routes>
+      </myContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

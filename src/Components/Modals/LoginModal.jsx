@@ -12,32 +12,18 @@ import {
   Input,
   Checkbox,
 } from "@material-tailwind/react";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 
 function LoginModal() {
   // const { modal, setModal } = useContext(myContext);
   const {handleLoginOpen}=useContext(myContext)
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // };
+  const navigate=useNavigate()
+  
 
   return (
     <div>
-      {/* <div className="modal">
-        <div className="overlay"></div>
-        <div className="modal-content">
-          <h2 className="login">LOGIN</h2>
-          <div className="text-div">
-            <TextField variant="outlined" label="Username"></TextField>
-            <TextField variant="outlined" label="Password"></TextField>
-          </div>
-
-          <button onClick={toggleModal} className="close-modal">
-            <CloseRoundedIcon />
-          </button>
-        </div>
-      </div> */}
+      
       <Dialog
         size="xs"
         open={open}
@@ -64,19 +50,19 @@ function LoginModal() {
             >
               Sign In
             </Button>
-            <Typography variant="small" className="mt-4 flex justify-center">
-              Don&apos;t have an account?
+            {/* <Typography variant="small" className="mt-4 flex justify-center">
+              Don't have an account?
               <Typography
                 as="a"
                 href="#signup"
                 variant="small"
                 color="red"
                 className="ml-1 font-bold"
-                onClick={handleLoginOpen}
+                onClick={()=>{navigate('/register')}}
               >
                 SignUp
               </Typography>
-            </Typography>
+            </Typography> */}
           </CardFooter>
         </Card>
       </Dialog>

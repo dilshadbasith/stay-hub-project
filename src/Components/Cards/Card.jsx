@@ -7,8 +7,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import {Pagination,Navigation} from "swiper/modules"
+import { useNavigate } from 'react-router-dom';
 
 function Card({card}) {
+  const navigate = useNavigate()
   return (
     <div className='property-card'>
         <Swiper
@@ -26,7 +28,7 @@ function Card({card}) {
       >
         {card?.imgSrc?.map((src, i) => (
           <SwiperSlide key={i}>
-            <img src={src} className="card-img" />
+            <img src={src} className="card-img" onClick={()=>navigate(`/browsecard/${card.id}`)}/>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -38,7 +40,7 @@ function Card({card}) {
                 <p>{card.rating}</p>
             </div>
         </div>
-        <p style={{margin:0, color:"gray"}}>{card.desc}</p>
+        <p style={{margin:0, color:"gray"}}>{card.place}</p>
         <p style={{margin:0, color:"gray"}}>{card.date}</p>
         <p style={{margin:0, color:"black", fontSize:".8rem"}}> <span style={{fontWeight:"600"}}>₹{card.price}</span> night </p>
     </div>

@@ -48,7 +48,7 @@ export default function DialogWithForm() {
             >
               SignUp
             </Button>
-            <Typography variant="small" className="mt-4 flex justify-center">
+            {/* <Typography variant="small" className="mt-4 flex justify-center">
               Already have an account?
               <Typography
                 as="a"
@@ -60,7 +60,7 @@ export default function DialogWithForm() {
               >
                 SignIn
               </Typography>
-            </Typography>
+            </Typography> */}
           </CardFooter>
         </Card>
       </Dialog>
