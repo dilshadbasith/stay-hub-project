@@ -1,0 +1,14 @@
+.footer-main{
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid rgb(211, 211, 211);
+    padding-top: 2rem;
+}
+.footer-heading{
+    font-weight: bold;
+}
+.footer-sub{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}

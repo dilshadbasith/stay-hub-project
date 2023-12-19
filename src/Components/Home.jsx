@@ -5,9 +5,10 @@ import ListCards from "./Cards/ListCards";
 import LoginModal from "./Modals/LoginModal";
 import { myContext } from "./Context";
 import DialogWithForm from "./Modals/RegisterModal";
+import Footer from "./Footer/Footer";
 
 function Home() {
-  const { modal,open,loginOpen } = useContext(myContext);
+  const { open,loginOpen } = useContext(myContext);
   return (
     <div>
       <Navigationbar />
@@ -15,6 +16,7 @@ function Home() {
       <ListCards />
       {loginOpen && <LoginModal />}
       {open && <DialogWithForm/>}
+      <Footer/>
     </div>
   );
 }
