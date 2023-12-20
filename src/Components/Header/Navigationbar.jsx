@@ -1,8 +1,8 @@
 import React from "react";
 import Logo from "../Assets/StayHub.png";
 import "../Header/Header.css";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
+import { FaSearch } from "react-icons/fa";
 import ProfileContainer from '../Header/ProfileContainer'
 
 function Navigationbar() {
@@ -14,7 +14,7 @@ function Navigationbar() {
         <div className="searchbar-text">Any week</div>
         <div className="searchbar-text2">Add Guests</div>
         <div className="search-icon-div">
-          <SearchRoundedIcon className="search-icon" />
+          <FaSearch className="search-icon" />
         </div>
       </div>
       <div className="profile-container">

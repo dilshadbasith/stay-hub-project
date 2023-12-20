@@ -1,0 +1,7 @@
+/* WorldMap.css */
+.MapContainer {
+    height: 500px;
+    width: 50%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the map container horizontally */
+  }
+  

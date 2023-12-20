@@ -42,16 +42,18 @@
     border-right: 1px solid rgb(212, 212, 212);
     padding-right: 0.5rem;
 }
-.search-icon{
-    background-color: #ff385c;
-    padding: .2rem;
-    border-radius: 50%;
+.search-icon{    
     color: white;
 }
 .search-icon-div{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #ff385c;
+
 }
 .profile-container{
     display: flex;

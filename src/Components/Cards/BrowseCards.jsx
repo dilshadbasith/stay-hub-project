@@ -5,15 +5,21 @@ import Navigationbar from "../Header/Navigationbar";
 import "../Cards/Cards.css";
 import BookingForm from "./BookingForm";
 import Footer from "../Footer/Footer";
+import WorldMap from "../Map/WorldMap";
+import LoginModal from "../Modals/LoginModal";
+import DialogWithForm from "../Modals/RegisterModal";
+
 
 function BrowseCards() {
-  const { cards } = useContext(myContext);
+  const { cards,open,loginOpen } = useContext(myContext);
   const { id } = useParams();
 
   const data = cards.filter((item) => item.id === parseInt(id));
   return (
     <div>
       <Navigationbar />
+      {loginOpen && <LoginModal />}
+      {open && <DialogWithForm/>}
       {data.map((item, index) => (
         <div>
           <div key={index} className="browse-div">
@@ -36,6 +42,7 @@ function BrowseCards() {
             <h1 style={{padding:"2rem"}} className="spec">{item.spec}</h1>
           <BookingForm />
           </div>
+          <WorldMap/>
         </div>
       ))}
       <Footer />
