@@ -14,6 +14,7 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:2,
@@ -30,6 +31,7 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
+      spec:"8 guests ● 2 bedrooms ● 4 beds ● 2 bathroom"
     },
     {
       id:3,
@@ -46,6 +48,7 @@ export const list = [
       date: "10-20 Oct",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
+      spec:"15 guests ● 8 bedrooms ● 9 beds ● 4 bathroom"
     },
     {
       id:4,
@@ -62,6 +65,7 @@ export const list = [
       date: "15-20 May",
       title: "Kumarakom",
       place:"Vembanad Lake",
+      spec:"20 guests ● 8 bedrooms ● 10 beds ● 5 bathroom"
     },
     {
       id:5,
@@ -78,6 +82,7 @@ export const list = [
       date: "15-20 May",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
+      spec:"10 guests ● 4 bedrooms ● 7 beds ● 2 bathroom"
     },
     {
       id:6,
@@ -94,6 +99,7 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
+      spec:"30 guests ● 10 bedrooms ● 15 beds ● 8 bathroom"
     },
     {
       id:7,
@@ -110,6 +116,7 @@ export const list = [
       date: "10-20 Oct",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
+      spec:"8 guests ● 3 bedrooms ● 5 beds ● 2 bathroom"
     },
     {
       id:8,
@@ -126,6 +133,7 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:9,
@@ -142,6 +150,7 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:10,
@@ -158,6 +167,7 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:11,
@@ -174,6 +184,7 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:12,
@@ -190,6 +201,7 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:13,
@@ -206,6 +218,7 @@ export const list = [
       date: "15-20 May",
       title: "Changmoi,Thailand",
       place:"Featured in Baanlaesuan",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:14,
@@ -222,6 +235,7 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:15,
@@ -238,6 +252,7 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
     {
       id:16,
@@ -254,5 +269,6 @@ export const list = [
       date: "10-20 Oct",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
     },
   ];

@@ -38,7 +38,7 @@ function Icons() {
   const iconDivRef = useRef(null);
 
   const handleScroll = (direction) => {
-    const scrollAmount = 100; // Adjust the scroll distance as needed
+    const scrollAmount = 300; 
     const container = iconDivRef.current;
 
     if (container) {

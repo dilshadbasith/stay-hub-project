@@ -12,3 +12,6 @@
     flex-direction: column;
     gap: .8rem;
 }
+.footer-sub p{
+    color: rgb(99, 99, 99);
+}
