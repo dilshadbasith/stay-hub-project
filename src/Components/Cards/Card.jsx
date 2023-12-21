@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Cards/Cards.css'
-import hotel from '../Assets/hotel-1.jpg'
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

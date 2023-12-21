@@ -1,117 +1,141 @@
+import { GiTreehouse } from "react-icons/gi";
+import { MdCabin } from "react-icons/md";
+import { GiIsland } from "react-icons/gi";
+import { PiWarehouseDuotone } from "react-icons/pi";
+import { GiPalmTree } from "react-icons/gi";
+import { FaFire } from "react-icons/fa6";
+import { FaUmbrellaBeach } from "react-icons/fa6";
+import { PiAlienBold } from "react-icons/pi";
+import { FaRegSnowflake } from "react-icons/fa";
+import { GiCampingTent } from "react-icons/gi";
+import { FaWater } from "react-icons/fa";
+import { MdKitesurfing } from "react-icons/md";
+import { BiSolidDish } from "react-icons/bi";
+import { GiCaveEntrance } from "react-icons/gi";
+import { FaKey } from "react-icons/fa6";
+import { MdOutlineSportsGolf } from "react-icons/md";
+import { GiFarmTractor } from "react-icons/gi";
+import { IoBedOutline } from "react-icons/io5";
+import { BsBuildings } from "react-icons/bs";
+import { FaHouseFloodWater } from "react-icons/fa6";
+import { FaMountainCity } from "react-icons/fa6";
+import { GiGrapes } from "react-icons/gi";
+import { FaFortAwesome } from "react-icons/fa";
+
 export const links = [
     {
       label: "OMG!",
       imgSrc:
-        "https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg",
+      <PiAlienBold style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Cabins",
       imgSrc:
-        "https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg",
+      <MdCabin style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Islands",
       imgSrc:
-        "https://a0.muscache.com/pictures/8e507f16-4943-4be9-b707-59bd38d56309.jpg",
+      <GiIsland style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Design",
       imgSrc:
-        "https://a0.muscache.com/pictures/50861fca-582c-4bcc-89d3-857fb7ca6528.jpg",
+      <PiWarehouseDuotone style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Tropical",
       imgSrc:
-        "https://a0.muscache.com/pictures/ee9e2a40-ffac-4db9-9080-b351efc3cfc4.jpg",
+      <GiPalmTree style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Trending",
       imgSrc:
-        "https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg",
+      <FaFire style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Beach",
       imgSrc:
-        "https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg",
+      <FaUmbrellaBeach style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Treehouses",
       imgSrc:
-        "https://a0.muscache.com/pictures/4d4a4eba-c7e4-43eb-9ce2-95e1d200d10e.jpg",
+      <GiTreehouse style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Arctic",
       imgSrc:
-        "https://a0.muscache.com/pictures/8b44f770-7156-4c7b-b4d3-d92549c8652f.jpg",
+      <FaRegSnowflake style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Camping",
       imgSrc:
-        "https://a0.muscache.com/pictures/ca25c7f3-0d1f-432b-9efa-b9f5dc6d8770.jpg",
+      <GiCampingTent style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Lakefront",
       imgSrc:
-        "https://a0.muscache.com/pictures/677a041d-7264-4c45-bb72-52bff21eb6e8.jpg",
+      <FaWater style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Surfing",
       imgSrc:
-        "https://a0.muscache.com/pictures/957f8022-dfd7-426c-99fd-77ed792f6d7a.jpg",
+      <MdKitesurfing style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Luxe",
       imgSrc:
-        "https://a0.muscache.com/pictures/c8e2ed05-c666-47b6-99fc-4cb6edcde6b4.jpg",
+      <BiSolidDish style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Caves",
       imgSrc:
-        "https://a0.muscache.com/pictures/4221e293-4770-4ea8-a4fa-9972158d4004.jpg",
+      <GiCaveEntrance style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "New",
       imgSrc:
-        "https://a0.muscache.com/pictures/c0fa9598-4e37-40f3-b734-4bd0e2377add.jpg",
+      <FaKey style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Golfing",
       imgSrc:
-        "https://a0.muscache.com/pictures/6b639c8d-cf9b-41fb-91a0-91af9d7677cc.jpg",
+      <MdOutlineSportsGolf style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Farms",
       imgSrc:
-        "https://a0.muscache.com/pictures/aaa02c2d-9f0d-4c41-878a-68c12ec6c6bd.jpg",
+      <GiFarmTractor style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Rooms",
       imgSrc:
-        "https://a0.muscache.com/pictures/7630c83f-96a8-4232-9a10-0398661e2e6f.jpg",
+      <IoBedOutline style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Mansions",
       imgSrc:
-        "https://a0.muscache.com/pictures/78ba8486-6ba6-4a43-a56d-f556189193da.jpg",
+      <BsBuildings style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Lake",
       imgSrc:
-        "https://a0.muscache.com/pictures/a4634ca6-1407-4864-ab97-6e141967d782.jpg",
+      <FaHouseFloodWater style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Countryside",
       imgSrc:
-        "https://a0.muscache.com/pictures/6ad4bd95-f086-437d-97e3-14d12155ddfe.jpg",
+      <FaMountainCity style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Vineyards",
       imgSrc:
-        "https://a0.muscache.com/pictures/60ff02ae-d4a2-4d18-a120-0dd274a95925.jpg",
+      <GiGrapes style={{height:"2rem",width:"2rem"}}/>,
     },
     {
       label: "Castles",
       imgSrc:
-        "https://a0.muscache.com/pictures/1b6a8b70-a3b6-48b5-88e1-2243d9172c06.jpg",
+        <FaFortAwesome style={{height:"2rem",width:"2rem"}}/>,
     },
   ];

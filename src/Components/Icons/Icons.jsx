@@ -1,33 +1,3 @@
-// import React, { useState } from "react";
-// import { links } from "../Assets/IconsLinks";
-// import "../Icons/Icons.css";
-
-// function Icons() {
-//   const [selectedFilter, setSelectedFilter] = useState();
-//   return (
-//     <div className="icon-div">
-//       {links.map((item, index) => (
-//         <div
-//           key={index}
-//           className={`icon-sub-div ${
-//             index == selectedFilter && "selected-box"
-//           }`}
-//           onClick={() => setSelectedFilter(index)}
-//         >
-//           <img src={item.imgSrc} alt="icons" className="link-image" />
-//           <p className={`link-label ${
-//             index == selectedFilter && "selected-label"
-//           }`}>{item.label}</p>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-
-// export default Icons;
-
-
-
 
 import React, { useState, useRef } from "react";
 import { links } from "../Assets/IconsLinks";
@@ -65,7 +35,10 @@ function Icons() {
             }`}
             onClick={() => setSelectedFilter(index)}
           >
-            <img src={item.imgSrc} alt="icons" className="link-image" />
+
+            <div className="link-image">
+            {item.imgSrc}
+            </div>
             <p
               className={`link-label ${
                 index === selectedFilter && "selected-label"

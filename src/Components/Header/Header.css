@@ -92,3 +92,7 @@
     transition: all 0.2s;
     cursor: pointer;
 }
+.avatar{
+    height: 2rem;
+    width: 2rem;
+}

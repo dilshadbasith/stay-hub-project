@@ -29,7 +29,7 @@ export default function BasicMenu() {
       >
         <div className="profile-div">
           <MenuIcon />
-          <IoPersonCircleSharp />
+          <IoPersonCircleSharp  className="avatar"/>
         </div>
       </Button>
       <Menu
