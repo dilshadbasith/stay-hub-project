@@ -1,6 +1,9 @@
 body.active-modal {
-    overflow-y: hidden;
+    overflow-y: auto;
 }
+.max-h-modal-body {
+    max-height: 80vh;
+  }
 
 .btn-modal {
     padding: 10px 20px;
@@ -54,3 +57,12 @@ body.active-modal {
     text-align: center;
     color: #ff385c;
 }
+.input-error{
+    border-color: red;
+}
+.error {
+    color: #fc8181;
+    font-size: 0.75rem;
+    text-align: left;
+    padding-top: -2rem !important;
+  }
