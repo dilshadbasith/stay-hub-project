@@ -9,6 +9,7 @@ import LoginModal from "./Components/Modals/LoginModal";
 import DialogWithForm from "./Components/Modals/RegisterModal";
 import BrowseCards from "./Components/Cards/BrowseCards";
 import { list } from "./Components/Assets/CardsLists";
+import AirbnbYourHome from "./Components/Airbnb-components/AirbnbYourHome";
 
 function App() {
   const [cards,setCards]=useState(list)
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/browsecard/:id" element={<BrowseCards />}/>
+          <Route path="/airbnbhome" element={<AirbnbYourHome />}/>
           
         </Routes>
       </myContext.Provider>

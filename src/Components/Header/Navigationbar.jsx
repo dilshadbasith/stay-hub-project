@@ -4,8 +4,11 @@ import "../Header/Header.css";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import { FaSearch } from "react-icons/fa";
 import ProfileContainer from '../Header/ProfileContainer'
+import { IoIosGlobe } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 function Navigationbar() {
+  const navigate= useNavigate()
   return (
     <div className="navbar">
       <img src={Logo} alt="logo" className="logo" />
@@ -18,9 +21,9 @@ function Navigationbar() {
         </div>
       </div>
       <div className="profile-container">
-        <div className="airbnb-your-home">Airbnb your home</div>
+        <div className="airbnb-your-home" onClick={()=>navigate('/airbnbhome')}>Airbnb your home</div>
         <div className="earth-icon-div">
-          <LanguageRoundedIcon />
+        <IoIosGlobe className="globe"/>
         </div>
         <div><ProfileContainer/></div>
       </div>
