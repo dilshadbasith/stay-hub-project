@@ -10,7 +10,7 @@ function ListCards() {
   return (
     <div className='cards-flex'>
       {list.map((card, i) => (
-        <div>
+        <div key={i}>
         <Card card={card} key={i} />
         </div>
       ))}

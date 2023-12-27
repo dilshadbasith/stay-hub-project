@@ -8,20 +8,23 @@ import Footer from "../Footer/Footer";
 import WorldMap from "../Map/WorldMap";
 import LoginModal from "../Modals/LoginModal";
 import DialogWithForm from "../Modals/RegisterModal";
+import { useSelector } from "react-redux";
 
 
 function BrowseCards() {
-  const { cards,open,loginOpen } = useContext(myContext);
+  const { open,loginOpen } = useContext(myContext);
   const { id } = useParams();
+  const cards=useSelector(state=>state.listingCard)
 
-  const data = cards.filter((item) => item.id === parseInt(id));
+  const data = cards.filter((item) => item.id == id);
+  console.log(data)
   return (
     <div>
       <Navigationbar />
       {loginOpen && <LoginModal />}
       {open && <DialogWithForm/>}
       {data.map((item, index) => (
-        <div>
+        <div key={index}>
           <div key={index} className="browse-div">
             <h2 className="browse-title">{item.desc}</h2>
             <div className="img-main-div">
