@@ -14,7 +14,8 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Glendale offers a diverse range of homestay options, providing visitors with a unique and personalized experience in this vibrant Southern California city. Homestays in Glendale often reflect the city's cultural richness, allowing guests to immerse themselves in the local lifestyle. From cozy bungalows to modern residences, the variety of accommodations caters to different preferences and budgets. With convenient access to Glendale's attractions, dining, and entertainment, homestays serve as excellent bases for exploring the city's dynamic atmosphere."
     },
     {
       id:2,
@@ -31,7 +32,8 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
-      spec:"8 guests ● 2 bedrooms ● 4 beds ● 2 bathroom"
+      spec:"8 guests ● 2 bedrooms ● 4 beds ● 2 bathroom",
+      desc2:"Kainakary, located in the picturesque backwaters of Kerala, India, offers an enchanting homestay experience immersed in the region's serene natural beauty. Homestays in Kainakary typically involve traditional Kerala houses, providing guests with an authentic glimpse into local culture and lifestyle. Guests can enjoy the warmth of hospitality from friendly hosts, relishing homemade Kerala cuisine and engaging in cultural exchanges. Kainakary's homestays offer a tranquil retreat, allowing visitors to unwind amidst the lush greenery and scenic waterways of this idyllic backwater village."
     },
     {
       id:3,
@@ -48,7 +50,8 @@ export const list = [
       date: "10-20 Oct",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
-      spec:"15 guests ● 8 bedrooms ● 9 beds ● 4 bathroom"
+      spec:"15 guests ● 8 bedrooms ● 9 beds ● 4 bathroom",
+      desc2:"Alappuzha, known as the Venice of the East in Kerala, India, boasts a rich network of backwaters and is a popular destination for homestays. Homestays in Alappuzha provide a unique opportunity for guests to experience the region's vibrant culture and hospitality firsthand. Typically set in traditional Kerala houses, these accommodations offer a blend of comfort and authenticity, often including houseboat experiences on the mesmerizing backwaters. Guests can savor delicious local cuisine, partake in cultural activities, and enjoy the tranquil surroundings, making Alappuzha homestays a memorable and immersive experience in God's Own Country."
     },
     {
       id:4,
@@ -65,7 +68,8 @@ export const list = [
       date: "15-20 May",
       title: "Kumarakom",
       place:"Vembanad Lake",
-      spec:"20 guests ● 8 bedrooms ● 10 beds ● 5 bathroom"
+      spec:"20 guests ● 8 bedrooms ● 10 beds ● 5 bathroom",
+      desc2:"Nestled on the shores of the enchanting Vembanad Lake in Kerala, Kumarakom is renowned for its idyllic homestays that provide an intimate connection with the region's natural beauty. Homestays in Kumarakom typically feature charming cottages or traditional Kerala houses, offering guests a peaceful retreat amidst lush greenery and serene waters. Hosts in Kumarakom warmly welcome visitors, providing a personalized touch to their stay with authentic local cuisine, cultural insights, and often, access to houseboat experiences on the backwaters. Staying in a Kumarakom homestay allows guests to unwind, rejuvenate, and appreciate the unique charm of this backwater paradise."
     },
     {
       id:5,
@@ -82,7 +86,8 @@ export const list = [
       date: "15-20 May",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
-      spec:"10 guests ● 4 bedrooms ● 7 beds ● 2 bathroom"
+      spec:"10 guests ● 4 bedrooms ● 7 beds ● 2 bathroom",
+      desc2:"Alappuzha, known as the Venice of the East in Kerala, India, boasts a rich network of backwaters and is a popular destination for homestays. Homestays in Alappuzha provide a unique opportunity for guests to experience the region's vibrant culture and hospitality firsthand. Typically set in traditional Kerala houses, these accommodations offer a blend of comfort and authenticity, often including houseboat experiences on the mesmerizing backwaters. Guests can savor delicious local cuisine, partake in cultural activities, and enjoy the tranquil surroundings, making Alappuzha homestays a memorable and immersive experience in God's Own Country."
     },
     {
       id:6,
@@ -99,7 +104,8 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
-      spec:"30 guests ● 10 bedrooms ● 15 beds ● 8 bathroom"
+      spec:"30 guests ● 10 bedrooms ● 15 beds ● 8 bathroom",
+      desc2:"Kainakary, located in the picturesque backwaters of Kerala, India, offers an enchanting homestay experience immersed in the region's serene natural beauty. Homestays in Kainakary typically involve traditional Kerala houses, providing guests with an authentic glimpse into local culture and lifestyle. Guests can enjoy the warmth of hospitality from friendly hosts, relishing homemade Kerala cuisine and engaging in cultural exchanges. Kainakary's homestays offer a tranquil retreat, allowing visitors to unwind amidst the lush greenery and scenic waterways of this idyllic backwater village."
     },
     {
       id:7,
@@ -116,7 +122,8 @@ export const list = [
       date: "10-20 Oct",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
-      spec:"8 guests ● 3 bedrooms ● 5 beds ● 2 bathroom"
+      spec:"8 guests ● 3 bedrooms ● 5 beds ● 2 bathroom",
+      desc2:"Alappuzha, known as the Venice of the East in Kerala, India, boasts a rich network of backwaters and is a popular destination for homestays. Homestays in Alappuzha provide a unique opportunity for guests to experience the region's vibrant culture and hospitality firsthand. Typically set in traditional Kerala houses, these accommodations offer a blend of comfort and authenticity, often including houseboat experiences on the mesmerizing backwaters. Guests can savor delicious local cuisine, partake in cultural activities, and enjoy the tranquil surroundings, making Alappuzha homestays a memorable and immersive experience in God's Own Country."
     },
     {
       id:8,
@@ -133,7 +140,8 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Glendale offers a diverse range of homestay options, providing visitors with a unique and personalized experience in this vibrant Southern California city. Homestays in Glendale often reflect the city's cultural richness, allowing guests to immerse themselves in the local lifestyle. From cozy bungalows to modern residences, the variety of accommodations caters to different preferences and budgets. With convenient access to Glendale's attractions, dining, and entertainment, homestays serve as excellent bases for exploring the city's dynamic atmosphere."
     },
     {
       id:9,
@@ -150,7 +158,8 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Kainakary, located in the picturesque backwaters of Kerala, India, offers an enchanting homestay experience immersed in the region's serene natural beauty. Homestays in Kainakary typically involve traditional Kerala houses, providing guests with an authentic glimpse into local culture and lifestyle. Guests can enjoy the warmth of hospitality from friendly hosts, relishing homemade Kerala cuisine and engaging in cultural exchanges. Kainakary's homestays offer a tranquil retreat, allowing visitors to unwind amidst the lush greenery and scenic waterways of this idyllic backwater village."
     },
     {
       id:10,
@@ -167,7 +176,8 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Glendale offers a diverse range of homestay options, providing visitors with a unique and personalized experience in this vibrant Southern California city. Homestays in Glendale often reflect the city's cultural richness, allowing guests to immerse themselves in the local lifestyle. From cozy bungalows to modern residences, the variety of accommodations caters to different preferences and budgets. With convenient access to Glendale's attractions, dining, and entertainment, homestays serve as excellent bases for exploring the city's dynamic atmosphere."
     },
     {
       id:11,
@@ -184,7 +194,8 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Glendale offers a diverse range of homestay options, providing visitors with a unique and personalized experience in this vibrant Southern California city. Homestays in Glendale often reflect the city's cultural richness, allowing guests to immerse themselves in the local lifestyle. From cozy bungalows to modern residences, the variety of accommodations caters to different preferences and budgets. With convenient access to Glendale's attractions, dining, and entertainment, homestays serve as excellent bases for exploring the city's dynamic atmosphere."
     },
     {
       id:12,
@@ -201,7 +212,8 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Kainakary, located in the picturesque backwaters of Kerala, India, offers an enchanting homestay experience immersed in the region's serene natural beauty. Homestays in Kainakary typically involve traditional Kerala houses, providing guests with an authentic glimpse into local culture and lifestyle. Guests can enjoy the warmth of hospitality from friendly hosts, relishing homemade Kerala cuisine and engaging in cultural exchanges. Kainakary's homestays offer a tranquil retreat, allowing visitors to unwind amidst the lush greenery and scenic waterways of this idyllic backwater village."
     },
     {
       id:13,
@@ -218,7 +230,8 @@ export const list = [
       date: "15-20 May",
       title: "Changmoi,Thailand",
       place:"Featured in Baanlaesuan",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Thailand's homestay experiences offer a delightful immersion into the country's rich culture and warm hospitality. Set in diverse locations, from bustling urban neighborhoods to rural villages, Thai homestays provide an authentic insight into local life. Guests can expect a wide range of accommodations, from traditional wooden houses to modern homes, all designed to showcase the unique character of Thailand. With hosts often offering guided tours, traditional Thai meals, and cultural activities, homestays become a gateway to the vibrant and diverse tapestry of Thai life."
     },
     {
       id:14,
@@ -235,7 +248,8 @@ export const list = [
       date: "15-20 May",
       title: "Glendale,India",
       place:"59km to Mukurthi National Park",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Glendale offers a diverse range of homestay options, providing visitors with a unique and personalized experience in this vibrant Southern California city. Homestays in Glendale often reflect the city's cultural richness, allowing guests to immerse themselves in the local lifestyle. From cozy bungalows to modern residences, the variety of accommodations caters to different preferences and budgets. With convenient access to Glendale's attractions, dining, and entertainment, homestays serve as excellent bases for exploring the city's dynamic atmosphere."
     },
     {
       id:15,
@@ -252,7 +266,8 @@ export const list = [
       date: "25-20 May",
       title: "kainakary South,India",
       place:"Vattakkaayal",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Kainakary, located in the picturesque backwaters of Kerala, India, offers an enchanting homestay experience immersed in the region's serene natural beauty. Homestays in Kainakary typically involve traditional Kerala houses, providing guests with an authentic glimpse into local culture and lifestyle. Guests can enjoy the warmth of hospitality from friendly hosts, relishing homemade Kerala cuisine and engaging in cultural exchanges. Kainakary's homestays offer a tranquil retreat, allowing visitors to unwind amidst the lush greenery and scenic waterways of this idyllic backwater village."
     },
     {
       id:16,
@@ -269,6 +284,7 @@ export const list = [
       date: "10-20 Oct",
       title: "Alappuzha,India",
       place:"Vembanad Lake",
-      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom"
+      spec:"9 guests ● 3 bedrooms ● 5 beds ● 1 bathroom",
+      desc2:"Alappuzha, known as the Venice of the East in Kerala, India, boasts a rich network of backwaters and is a popular destination for homestays. Homestays in Alappuzha provide a unique opportunity for guests to experience the region's vibrant culture and hospitality firsthand. Typically set in traditional Kerala houses, these accommodations offer a blend of comfort and authenticity, often including houseboat experiences on the mesmerizing backwaters. Guests can savor delicious local cuisine, partake in cultural activities, and enjoy the tranquil surroundings, making Alappuzha homestays a memorable and immersive experience in God's Own Country."
     },
   ];

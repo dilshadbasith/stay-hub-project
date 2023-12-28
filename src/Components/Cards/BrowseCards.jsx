@@ -10,19 +10,18 @@ import LoginModal from "../Modals/LoginModal";
 import DialogWithForm from "../Modals/RegisterModal";
 import { useSelector } from "react-redux";
 
-
 function BrowseCards() {
-  const { open,loginOpen } = useContext(myContext);
+  const { open, loginOpen } = useContext(myContext);
   const { id } = useParams();
-  const cards=useSelector(state=>state.listingCard)
+  const cards = useSelector((state) => state.listingCard);
 
   const data = cards.filter((item) => item.id == id);
-  console.log(data)
+  console.log(data);
   return (
     <div>
       <Navigationbar />
       {loginOpen && <LoginModal />}
-      {open && <DialogWithForm/>}
+      {open && <DialogWithForm />}
       {data.map((item, index) => (
         <div key={index}>
           <div key={index} className="browse-div">
@@ -41,11 +40,17 @@ function BrowseCards() {
               </div>
             </div>
           </div>
-          <div style={{display:"flex",justifyContent:"space-around"}}>
-            <h1 style={{padding:"2rem"}} className="spec">{item.spec}</h1>
-          <BookingForm />
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
+            <div style={{display:"flex", flexDirection:"column", width:"55rem"}}>
+              <h1 style={{ paddingLeft: "2rem" }} className="spec">
+                {item.spec}
+              </h1>
+              <p style={{ paddingLeft: "2rem" }}>{item.desc2}</p>
+            </div>
+
+            <BookingForm />
           </div>
-          <WorldMap/>
+          <WorldMap />
         </div>
       ))}
       <Footer />

@@ -1,11 +1,13 @@
 import React from 'react'
 import '../Cards/Cards.css'
 import Card from './Card'
-import { list } from '../Assets/CardsLists'
-import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+// import { list } from '../Assets/CardsLists'
+
 
 
 function ListCards() {
+  const list = useSelector(state=>state.listingCard)
   
   return (
     <div className='cards-flex'>
