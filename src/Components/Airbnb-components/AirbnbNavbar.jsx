@@ -8,7 +8,7 @@ function AirbnbNavbar() {
     <>
     <div className='navbar-div'>
         <div>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className='airbnb-logo'/>
         </div>
         <div className='navbar-subdiv'>
             <div><h4>Ready to Airbnb it?</h4></div>

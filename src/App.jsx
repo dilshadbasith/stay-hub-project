@@ -12,9 +12,10 @@ import { list } from "./Components/Assets/CardsLists";
 import AirbnbYourHome from "./Components/Airbnb-components/AirbnbYourHome";
 import AdminHome from "./Components/Admin/AdminHome";
 import Dash from "./Components/Admin/Dash";
+import { UserList } from "./Components/Admin/UserList";
 
 function App() {
-  const [cards,setCards]=useState(list)
+  const [cards, setCards] = useState(list);
   const [modal, setModal] = useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
@@ -34,16 +35,19 @@ function App() {
           setLoginOpen,
           handleLoginOpen,
           cards,
-          setCards
+          setCards,
         }}
       >
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/browsecard/:id" element={<BrowseCards />}/>
-          <Route path="/airbnbhome" element={<AirbnbYourHome />}/>
-          <Route path="/adminhome" element={<AdminHome />}/>
-          <Route path="/dash" element={<Dash />}/>
-          
+          <Route path="/" element={<Home />} />
+          <Route path="/browsecard/:id" element={<BrowseCards />} />
+          <Route path="/airbnbhome" element={<AirbnbYourHome />} />
+
+          <Route path="/adminhome" element={<AdminHome />} />
+          <Route element={<AdminHome />}>
+            <Route path="/dash" element={<Dash />} />
+            <Route path="/userlist" element={<UserList />} />
+          </Route>
         </Routes>
       </myContext.Provider>
     </>
