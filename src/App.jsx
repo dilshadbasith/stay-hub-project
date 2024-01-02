@@ -13,6 +13,8 @@ import AirbnbYourHome from "./Components/Airbnb-components/AirbnbYourHome";
 import AdminHome from "./Components/Admin/AdminHome";
 import Dash from "./Components/Admin/Dash";
 import { UserList } from "./Components/Admin/UserList";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -23,7 +25,8 @@ function App() {
   const handleLoginOpen = () => setLoginOpen((cur) => !cur);
 
   return (
-    <>
+    <>    
+    <ToastContainer autoClose={3000} position="top-center"/>
       <myContext.Provider
         value={{
           modal,
@@ -38,6 +41,7 @@ function App() {
           setCards,
         }}
       >
+    
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/browsecard/:id" element={<BrowseCards />} />

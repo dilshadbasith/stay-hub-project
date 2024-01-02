@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   Button,
   Dialog,
@@ -7,45 +7,54 @@ import {
   CardFooter,
   Typography,
   Input,
-  Checkbox,
 } from "@material-tailwind/react";
 import { myContext } from "../Context";
 import { useFormik } from "formik";
-import { basicSchema } from "./RegisterSchema";
+import * as Yup from 'yup'
 import "./LoginModal.css";
-
-const onSubmit = (values,actions) => {
-  console.log(values);
-  console.log(actions)
-};
+import Axios from "../../lib/Axios";
+import { toast } from "react-toastify";
 
 export default function DialogWithForm() {
   const { handleOpen } = useContext(myContext);
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: {
-        name: "",
-        email: "",
-        mobile: "",
-        username: "",
-        password: "",
-        confirmpassword: "",
-      },
-      validationSchema: basicSchema,
-      onSubmit,
-    });
-  console.log(errors);
+
+  const basicSchema = Yup.object().shape({
+    name:Yup.string().min(3).required("required"),
+    email:Yup.string().email("Please enter valid email").required("required"),
+    mobilenumber:Yup.number().positive().integer().required("required"),
+     password:Yup.string().min(5).required("required")
+})
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      mobilenumber: "",
+      password: "",
+    },
+    validationSchema: basicSchema,
+    onSubmit: async (values) => {
+      try {
+        const res = await Axios.post("/api/users/auth/signup", values);
+        toast.success("Registration successful!");
+        handleOpen();
+      } catch (error) {
+        toast.error("Registration failed. Please try again.");
+        handleOpen()
+      }
+    },
+  });
+
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <Dialog
-          size="xs"
-          open={open}
-          handler={handleOpen}
-          className="bg-transparent shadow-none"
-        >
+      <Dialog
+        size="xs"
+        open={open}
+        handler={handleOpen}
+        className="bg-transparent shadow-none"
+      >
+        <form onSubmit={formik.handleSubmit}>
           <Card className="mx-auto w-full max-w-[24rem]">
             <CardBody className="flex flex-col gap-4 max-h-modal-body overflow-auto">
               <Typography variant="h4" color="red" className="text-center">
@@ -57,73 +66,48 @@ export default function DialogWithForm() {
                 type="text"
                 id="name"
                 size="lg"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}                
+                value={formik.values.name}
+                onChange={formik.handleChange}
               />
-              {errors.name && touched.name && <p className="error">{errors.name}</p>}
+              {formik.errors.name && formik.touched.name && (
+            <p className="error">{formik.errors.name}</p>
+          )}
               <Input
                 label="Email"
                 type="email"
                 id="email"
                 size="lg"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                value={formik.values.email}
+                onChange={formik.handleChange}
               />
-              {errors.email && touched.email && <p className="error">{errors.email}</p>}
+                 {formik.errors.email && formik.touched.email && (
+            <p className="error">{formik.errors.email}</p>
+          )}
               <Input
                 label="Mobile"
                 size="lg"
-                id="mobile"
+                id="mobilenumber"
                 type="number"
-                value={values.mobile}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                value={formik.values.mobilenumber}
+                onChange={formik.handleChange}
               />
-              {errors.mobile && touched.mobile && <p className="error">{errors.mobile}</p>}
-              <Input
-                label="Username"
-                size="lg"
-                id="username"
-                type="text"
-                value={values.username}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.username && touched.username && <p className="error">{errors.username}</p>}
+                  {formik.errors.mobilenumber && formik.touched.mobilenumber && (
+            <p className="error">{formik.errors.mobilenumber}</p>
+          )}
               <Input
                 label="Password"
                 size="lg"
                 id="password"
                 type="password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
+                value={formik.values.password}
+                onChange={formik.handleChange}
               />
-              {errors.password && touched.password && <p className="error">{errors.password}</p>}
-              <Input
-                label="Confirm Password"
-                size="lg"
-                id="confirmpassword"
-                type="password"
-                value={values.confirmpassword}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.confirmpassword && touched.confirmpassword && <p className="error">{errors.confirmpassword}</p>}
-              {/* <div className="-ml-2.5 -mt-3">
-                <Checkbox label="Remember Me" />
-              </div> */}
+                  {formik.errors.password && formik.touched.password && (
+            <p className="error">{formik.errors.password}</p>
+          )}
             </CardBody>
             <CardFooter className="pt-0">
-              <Button
-                type="submit"
-                variant="gradient"
-                onClick={handleOpen}
-                fullWidth
-                color="red"
-              >
+              <Button type="submit" variant="gradient" fullWidth color="red">
                 SignUp
               </Button>
               {/* <Typography variant="small" className="mt-4 flex justify-center">
@@ -141,8 +125,8 @@ export default function DialogWithForm() {
             </Typography> */}
             </CardFooter>
           </Card>
-        </Dialog>
-      </form>
+        </form>
+      </Dialog>
     </>
   );
 }
