@@ -103,6 +103,29 @@
     display: none;
 }
 
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .styled-input {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .input-mode {
+    cursor: auto;
+  }
+  .isinputmode{
+    display: flex;
+    gap: 1rem;
+  }
+  
+  
+
 @media only screen and (max-width:800px){
     .search-bar,.earth-icon-div{
         display: none;

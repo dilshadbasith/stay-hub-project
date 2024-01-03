@@ -15,6 +15,7 @@ import Dash from "./Components/Admin/Dash";
 import { UserList } from "./Components/Admin/UserList";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import RentPage from "./Components/RentPage/RentPage";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -46,6 +47,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/browsecard/:id" element={<BrowseCards />} />
           <Route path="/airbnbhome" element={<AirbnbYourHome />} />
+          <Route path="/rentpage" element={<RentPage />} />
 
           <Route path="/adminhome" element={<AdminHome />} />
           <Route element={<AdminHome />}>
