@@ -20,7 +20,7 @@ import { useCookies } from "react-cookie";
 function LoginModal() {
   const { handleLoginOpen } = useContext(myContext);
   const [formdata, setFormdata] = useState({ email: "", password: "" });
-  const [_, setCookie] = useCookies("access_token");
+  const [_, setCookie] = useCookies(["access_token"]);
   const navigate = useNavigate();
 
   const handleChange = async (e) => {
@@ -44,7 +44,11 @@ function LoginModal() {
         handleLoginOpen();
       }
     } catch (error) {
-      toast.error("Login failed. Please try again.");
+      if(error.response.status == 401){
+        toast.error("Login failed. You are a Suspended User")
+      }else{
+        toast.error("Login failed. Please try again.");
+      }
       handleLoginOpen();
     }
   };

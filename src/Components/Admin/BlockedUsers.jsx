@@ -1,5 +1,4 @@
 import { Card, Typography } from "@material-tailwind/react";
-import { MdDelete } from "react-icons/md";
 import "../Admin/Admin.css";
 import { useEffect, useState } from "react";
 import Axios from "../../lib/Axios";
@@ -8,7 +7,7 @@ import { toast } from "react-toastify";
 
 const TABLE_HEAD = ["Name", "Mobile", "Email", ""];
 
-export function UserList() {
+export function BlockedUsers() {
   const [userlist, setUserlist] = useState([]);
   const [cookies] = useCookies(["access_token"]);
 
@@ -24,40 +23,8 @@ export function UserList() {
     User();
   }, []);
 
-  const handleBlock = async (e, id) => {
-    e.preventDefault();
-    try {
-      const block = await Axios.put(
-        `/api/admin/users/${id}`,
-        { adminSuspended: true },
-        {
-          headers: { Authorization: `Bearer ${cookies.access_token}` },
-        }
-      );
-      toast.success("user blocked");
-      // location.reload()
-      User();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const handleUnBlock = async (e, id) => {
-    e.preventDefault();
-    try {
-      const block = await Axios.put(
-        `/api/admin/users/${id}`,
-        { adminSuspended: false },
-        {
-          headers: { Authorization: `Bearer ${cookies.access_token}` },
-        }
-      );
-      toast.success("user unblocked");
-      // location.reload()
-      User();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
+  const blocked=userlist.filter((user)=>user.adminSuspended==true)
 
   return (
     <Card className="h-full w-full overflow-scroll">
@@ -81,7 +48,7 @@ export function UserList() {
           </tr>
         </thead>
         <tbody>
-          {userlist.map((item, index) => (
+          {blocked.map((item, index) => (
             <tr key={index} className="even:bg-blue-gray-50/50">
               <td className="p-4">
                 <Typography
@@ -119,21 +86,6 @@ export function UserList() {
                   className="font-medium"
                 >
                   {" "}
-                  {item.adminSuspended ? (
-                    <button
-                      className="block-btn"
-                      onClick={(e) => handleUnBlock(e, item._id)}
-                    >
-                      unBlock
-                    </button>
-                  ) : (
-                    <button
-                      className="block-btn"
-                      onClick={(e) => handleBlock(e, item._id)}
-                    >
-                      Block
-                    </button>
-                  )}
                 </Typography>
               </td>
             </tr>

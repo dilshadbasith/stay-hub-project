@@ -24,6 +24,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 
 const drawerWidth = 240;
@@ -76,6 +77,7 @@ const defaultTheme = createTheme();
 
 export default function AdminHome() {
   const navigate = useNavigate();
+  const [cookie, setCookie, removeCookie]=useCookies(["access_token"])
 
   const handleUsersButtonClick = () => {
     navigate('/userlist');
@@ -92,7 +94,14 @@ export default function AdminHome() {
   };
 
   const handleLogout = () => {
+    if(window.confirm("Are you sure to logout?")){
+      removeCookie("access_token");
+      navigate('/')
+    }
+  }
 
+  const handleBlockedUsers = ()=>{
+    navigate('/blockedusers')
   }
 
   return (
@@ -173,7 +182,7 @@ export default function AdminHome() {
               <ListItemIcon>
                 <LayersIcon />
               </ListItemIcon>
-              <ListItemText primary="Blocked Users" />
+              <ListItemText onClick={handleBlockedUsers} primary="Blocked Users" />
             </ListItemButton>
           </List>
           <Divider sx={{ my: 1 }} />

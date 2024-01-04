@@ -15,6 +15,7 @@
     justify-content: center;
     border-radius: 2rem;
     cursor: pointer;
+    transition: .3s;
 }
 .categ-div:hover{
     background-color: black;
@@ -26,4 +27,28 @@
     justify-content: space-between;
     gap: 2rem;
     flex-wrap: wrap;
+}
+.counter-div{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.counter-btn{
+    font-size: 2rem;
+    background-color: rgb(112, 112, 112);
+    padding-left: .9rem;
+    padding-right: .9rem;
+    border-radius: 50%;
+    color: white;
+}
+.count{
+    font-size: 2rem;
+}
+.textarea{
+    border: 1px solid black;
+}
+.price-input{
+    border: 1px solid black;
+    height: 3rem;
+    width: 20rem;
 }

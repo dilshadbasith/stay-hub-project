@@ -1,3 +1,8 @@
-.admin-dlt-btn{
-    font-size: 1.6rem;
+
+.block-btn{
+    background-color: red;
+    padding: .7rem;
+    color: white;
+    border-radius: .5rem;
+    font-weight: bold;
 }
