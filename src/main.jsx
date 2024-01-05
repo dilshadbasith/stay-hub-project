@@ -5,8 +5,9 @@ import "./index.css";
 
 import { ThemeProvider } from "@material-tailwind/react";
 import { BrowserRouter } from "react-router-dom";
-import Store from "./Redux/Store/Store.js";
+import Store  from "./Redux/Store/Store.js";
 import { Provider } from "react-redux";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

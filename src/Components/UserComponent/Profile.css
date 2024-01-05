@@ -1,0 +1,44 @@
+.profile-main-div{
+    padding: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5rem;
+}
+.profile-sub-div{
+    height: 30rem;
+    width: 20rem;
+    background-color: rgb(202, 202, 202);
+    border-radius: 2rem;
+}
+.profile-sec-div{
+    height: 30rem;
+    width: 45rem;
+    background-color: rgb(202, 202, 202);
+    border-radius: 2rem;
+}
+.profile-head-div{
+    height: 8rem;
+    background-color: #ff385c;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+
+}
+.avatar-profile{
+    position: absolute;
+    left: 7.7rem;
+    top: 5rem;
+}
+.info-div{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 4rem;
+    padding-left: 1.5rem;
+}
+.info-h4{
+    color: #6b6b6b;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}

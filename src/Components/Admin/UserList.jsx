@@ -121,7 +121,7 @@ export function UserList() {
                   {" "}
                   {item.adminSuspended ? (
                     <button
-                      className="block-btn"
+                      className="unblock-btn"
                       onClick={(e) => handleUnBlock(e, item._id)}
                     >
                       unBlock

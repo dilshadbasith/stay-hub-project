@@ -6,3 +6,10 @@
     border-radius: .5rem;
     font-weight: bold;
 }
+.unblock-btn{
+    background-color: rgb(0, 255, 13);
+    padding: .7rem;
+    color: white;
+    border-radius: .5rem;
+    font-weight: bold;
+}

@@ -44,7 +44,7 @@ function Navigationbar() {
           className="airbnb-your-home"
           onClick={() => navigate("/airbnbhome")}
         >
-          Airbnb your home
+          Host your home
         </div>
         <div className="earth-icon-div">
           <IoIosGlobe className="globe" />

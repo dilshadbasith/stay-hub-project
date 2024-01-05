@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import RentPage from "./Components/RentPage/RentPage";
 import { BlockedUsers } from "./Components/Admin/BlockedUsers";
+import UserProfile from "./Components/UserComponent/UserProfile";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -49,6 +50,7 @@ function App() {
           <Route path="/browsecard/:id" element={<BrowseCards />} />
           <Route path="/airbnbhome" element={<AirbnbYourHome />} />
           <Route path="/rentpage" element={<RentPage />} />
+          <Route path="/userprofile" element={<UserProfile />} />
 
           <Route path="/adminhome" element={<AdminHome />} />
           <Route element={<AdminHome />}>
