@@ -77,7 +77,11 @@
   font-size: 1.5rem;
 }
 .heart{
-  color: white;
+  color: rgba(255, 255, 255, 0.616);
+  font-size: 1.5rem;
+}
+.redheart{
+  color: rgb(255, 59, 33);
   font-size: 1.5rem;
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../Cards/Cards.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -6,11 +6,26 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
-import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { myContext } from "../Context";
+
 
 function Card({ card }) {
+  const [isClicked, setIsClicked] = useState(false);
+
   const navigate = useNavigate();
+
+
+  const { currentUser } = useSelector((state) => state.user);
+  const {handleLoginOpen}=useContext(myContext)
+
+  const handleFav = () => {
+    setIsClicked(!isClicked);
+  };
+
+
   return (
     <div className="property-card">
       <Swiper
@@ -41,7 +56,11 @@ function Card({ card }) {
                 cursor: "pointer",
               }}
             >
-              <FaRegHeart className="heart" />
+              {currentUser ? (
+                <FaHeart onClick={handleFav} className={isClicked?"redheart":"heart"} />
+              ) : (
+                <FaHeart className="heart" onClick={()=>handleLoginOpen()}/>
+              )}
             </div>
           </SwiperSlide>
         ))}
@@ -50,7 +69,7 @@ function Card({ card }) {
       <div className="card-info">
         <h3 className="card-title">{card.title}</h3>
         <div className="card-rating">
-        <FaStar />
+          <FaStar />
           <p>{card.rating}</p>
         </div>
       </div>

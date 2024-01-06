@@ -10,7 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { myContext } from "../Context";
 import { useFormik } from "formik";
-import * as Yup from 'yup'
+import * as Yup from "yup";
 import "./LoginModal.css";
 import Axios from "../../lib/Axios";
 import { toast } from "react-toastify";
@@ -18,13 +18,12 @@ import { toast } from "react-toastify";
 export default function DialogWithForm() {
   const { handleOpen } = useContext(myContext);
 
-
   const basicSchema = Yup.object().shape({
-    name:Yup.string().min(3).required("required"),
-    email:Yup.string().email("Please enter valid email").required("required"),
-    mobilenumber:Yup.number().positive().integer().required("required"),
-     password:Yup.string().min(5).required("required")
-})
+    name: Yup.string().min(3).required("required"),
+    email: Yup.string().email("Please enter valid email").required("required"),
+    mobilenumber: Yup.number().positive().integer().required("required"),
+    password: Yup.string().min(5).required("required"),
+  });
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -39,12 +38,16 @@ export default function DialogWithForm() {
         toast.success("Registration successful!");
         handleOpen();
       } catch (error) {
-        toast.error("Registration failed. Please try again.");
-        handleOpen()
+        if (error.response.status == 403) {
+          toast.error("User already exists,Try with another email!");
+          handleOpen()
+        } else {
+          toast.error("Registration failed. Please try again.");
+          handleOpen();
+        }
       }
     },
   });
-
 
   return (
     <>
@@ -70,8 +73,8 @@ export default function DialogWithForm() {
                 onChange={formik.handleChange}
               />
               {formik.errors.name && formik.touched.name && (
-            <p className="error">{formik.errors.name}</p>
-          )}
+                <p className="error">{formik.errors.name}</p>
+              )}
               <Input
                 label="Email"
                 type="email"
@@ -80,9 +83,9 @@ export default function DialogWithForm() {
                 value={formik.values.email}
                 onChange={formik.handleChange}
               />
-                 {formik.errors.email && formik.touched.email && (
-            <p className="error">{formik.errors.email}</p>
-          )}
+              {formik.errors.email && formik.touched.email && (
+                <p className="error">{formik.errors.email}</p>
+              )}
               <Input
                 label="Mobile"
                 size="lg"
@@ -91,9 +94,9 @@ export default function DialogWithForm() {
                 value={formik.values.mobilenumber}
                 onChange={formik.handleChange}
               />
-                  {formik.errors.mobilenumber && formik.touched.mobilenumber && (
-            <p className="error">{formik.errors.mobilenumber}</p>
-          )}
+              {formik.errors.mobilenumber && formik.touched.mobilenumber && (
+                <p className="error">{formik.errors.mobilenumber}</p>
+              )}
               <Input
                 label="Password"
                 size="lg"
@@ -102,9 +105,9 @@ export default function DialogWithForm() {
                 value={formik.values.password}
                 onChange={formik.handleChange}
               />
-                  {formik.errors.password && formik.touched.password && (
-            <p className="error">{formik.errors.password}</p>
-          )}
+              {formik.errors.password && formik.touched.password && (
+                <p className="error">{formik.errors.password}</p>
+              )}
             </CardBody>
             <CardFooter className="pt-0">
               <Button type="submit" variant="gradient" fullWidth color="red">

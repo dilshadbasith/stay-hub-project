@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stepper, Step, Button } from "@material-tailwind/react";
 import { links } from "../Assets/IconsLinks";
 import "../RentPage/Rent.css";
@@ -12,6 +12,22 @@ export default function RentPage() {
 
   const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
+
+
+  const [formdata,setFormdata]=useState({
+    title:"",
+    description:"",
+    imageSrc:"",
+    category:"",
+    roomCount:"",
+    bathroomCount:"",
+    guestCoun:"",
+    price:"",
+  })
+
+  const handleChange=()=>{
+   
+  }
 
   return (
     <div className="w-full py-4 px-8">
@@ -68,6 +84,12 @@ export default function RentPage() {
                 style={{ display: "flex", gap: "1rem", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Bathrooms:</h4>
+                <Counter />
+              </div>
+              <div
+                style={{ display: "flex", gap: "1rem", alignItems: "center" }}
+              >
+                <h4 style={{ fontSize: "1.5rem" }}>Guest Capacity:</h4>
                 <Counter />
               </div>
             </div>

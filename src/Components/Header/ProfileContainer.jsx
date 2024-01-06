@@ -28,11 +28,8 @@ export default function BasicMenu() {
   const {handleOpen,handleLoginOpen}=useContext(myContext)
 
   const {currentUser}= useSelector((state)=>state.user)
-  console.log(currentUser,"hi")
+  // console.log(currentUser,"hi")
 
-  // if (!currentUser) {
-  //   return null; // or some loading indicator if needed
-  // }
 
   const handleLogout = () => {
     if(window.confirm("Are you sure to logout?")){
