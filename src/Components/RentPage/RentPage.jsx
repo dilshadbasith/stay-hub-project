@@ -4,30 +4,95 @@ import { links } from "../Assets/IconsLinks";
 import "../RentPage/Rent.css";
 import CountrySelect from "./CountrySelect";
 import Counter from "./Counter";
+import properties from "../../lib/CloudinaryMultiImage";
+import Axios from "../../lib/Axios";
+import { toast } from "react-toastify";
+import { useCookies } from "react-cookie";
+import { Loading } from "./Loading";
 
 export default function RentPage() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLastStep, setIsLastStep] = React.useState(false);
   const [isFirstStep, setIsFirstStep] = React.useState(false);
+  const [category, setCategory] = useState({ category: "" });
+  const [uploading, setUploading] = useState(false);
+  const [files, setFiles] = useState([]);
+  const [cookies] = useCookies(["access_token"]);
 
   const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
 
+  const [formdata, setFormdata] = useState({
+    title: "",
+    description: "",
+    properties: [],
+    roomCount: "",
+    bathroomCount: "",
+    guestCount: "",
+    price: "",
+    location: "",
+    category: "",
+  });
+  const handleCategoryChange = (label) => {
+    setFormdata({ ...formdata, category: label });
+  };
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormdata({ ...formdata, [id]: value });
+  };
+  const handleCountChange = (e) => {
+    const { id, value } = e;
+    setFormdata({ ...formdata, [id]: value });
+  };
 
-  const [formdata,setFormdata]=useState({
-    title:"",
-    description:"",
-    imageSrc:"",
-    category:"",
-    roomCount:"",
-    bathroomCount:"",
-    guestCoun:"",
-    price:"",
-  })
+  const handleLocationChange = (selectedCountry) => {
+    setFormdata({ ...formdata, location: selectedCountry });
+  };
+  // console.log(formdata);
 
-  const handleChange=()=>{
-   
-  }
+  const handleImageUpload = (e) => {
+    if (files.length > 0 && files.length + formdata.properties.length < 7) {
+      setUploading(true);
+      const promises = [];
+
+      for (let i = 0; i < files.length; i++) {
+        promises.push(properties(files[i]));
+      }
+      Promise.all(promises)
+        .then((urls) => {
+          setFormdata({
+            ...formdata,
+            properties: formdata.properties.concat(urls),
+          });
+          setUploading(false);
+        })
+        .catch((err) => {
+          setUploading(false);
+        });
+    } else {
+      setUploading(false);
+    }
+  };
+  // console.log(uploading);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (e.nativeEvent.submitter && e.nativeEvent.submitter.type === "submit") {
+      if (activeStep !== 5) {
+        // Don't submit the form if it's not on the last step
+        return;
+      }
+    }
+    try {
+      const res = await Axios.post("/api/users/listings", formdata, {
+        headers: { Authorization: `Bearer ${cookies.access_token}` },
+      });
+      console.log(res);
+      toast.success("Listing Created SuccesFully");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="w-full py-4 px-8">
@@ -43,14 +108,18 @@ export default function RentPage() {
         <Step onClick={() => setActiveStep(4)}>5</Step>
         <Step onClick={() => setActiveStep(5)}>6</Step>
       </Stepper>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         {activeStep === 0 && (
           <div>
             <h1 className="rent-h1">Rent your Property</h1>
             <h3 className="rent-categ">Select Your Category:</h3>
             <div className="categ-main-div">
               {links.map((item, index) => (
-                <div key={index} className="categ-div">
+                <div
+                  key={index}
+                  className="categ-div"
+                  onClick={() => handleCategoryChange(item.label)}
+                >
                   {item.imgSrc}
                   {item.label}
                 </div>
@@ -61,9 +130,20 @@ export default function RentPage() {
         {activeStep === 1 && (
           <div>
             <h1 className="rent-h1">Rent your Property</h1>
+            <h3 className="rent-categ">Add Title:</h3>
+            <input
+              type="text"
+              className="price-input"
+              id="title"
+              onChange={handleChange}
+              value={formdata.title}
+            />
             <h3 className="rent-categ">Select your Location</h3>
             <div>
-              <CountrySelect />
+              <CountrySelect
+                value={formdata.location}
+                onChange={handleLocationChange}
+              />
             </div>
           </div>
         )}
@@ -78,19 +158,19 @@ export default function RentPage() {
                 style={{ display: "flex", gap: "1rem", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Bedrooms:</h4>
-                <Counter />
+                <Counter id="roomCount" onChange={handleCountChange} />
               </div>
               <div
                 style={{ display: "flex", gap: "1rem", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Bathrooms:</h4>
-                <Counter />
+                <Counter id="bathroomCount" onChange={handleCountChange} />
               </div>
               <div
                 style={{ display: "flex", gap: "1rem", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Guest Capacity:</h4>
-                <Counter />
+                <Counter id="guestCount" onChange={handleCountChange} />
               </div>
             </div>
           </div>
@@ -105,7 +185,14 @@ export default function RentPage() {
               id="imageUpload"
               name="image"
               accept="image/*"
+              onChange={(e) => {
+                setFiles(e.target.files);
+              }}
             ></input>
+            <button onClick={handleImageUpload}>Upload</button>
+            {uploading &&
+            (<Loading/>)
+            }
           </div>
         )}
         {activeStep === 4 && (
@@ -117,6 +204,9 @@ export default function RentPage() {
               rows="10"
               cols="160"
               placeholder="Type the description here..."
+              id="description"
+              value={formdata.description}
+              onChange={handleChange}
             ></textarea>
           </div>
         )}
@@ -124,11 +214,20 @@ export default function RentPage() {
           <div>
             <h1 className="rent-h1">Rent your Property</h1>
             <h3 className="rent-categ">Add Price:</h3>
-            <input type="number" className="price-input" placeholder=" enter price"/>
+            <input
+              type="number"
+              className="price-input"
+              placeholder=" enter price"
+              id="price"
+              value={formdata.price}
+              onChange={handleChange}
+            />
+            <Button type="submit">Submit</Button>
           </div>
         )}
+        <div className="mt-16 flex justify-between"></div>
       </form>
-      <div className="mt-16 flex justify-between">
+      <div style={{display:"flex",justifyContent:"space-between"}}>
         <Button onClick={handlePrev} disabled={isFirstStep}>
           Prev
         </Button>

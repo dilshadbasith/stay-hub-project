@@ -1,6 +1,6 @@
 import axios from "axios";
 
-async function CloudinaryMultiImage(file) {
+async function properties(file) {
   const data = new FormData();
   data.append("file", file);
   console.log(file);
@@ -33,4 +33,4 @@ async function CloudinaryMultiImage(file) {
   }
 }
 
-export default CloudinaryMultiImage;
+export default properties;

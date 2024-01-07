@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../Cards/Cards.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,10 +10,12 @@ import { FaHeart } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { myContext } from "../Context";
+import Axios from "../../lib/Axios";
 
 
 function Card({ card }) {
   const [isClicked, setIsClicked] = useState(false);
+  const [cardList, setCardList] = useState([]);
 
   const navigate = useNavigate();
 
@@ -25,6 +27,16 @@ function Card({ card }) {
     setIsClicked(!isClicked);
   };
 
+  async function Cards(){
+    const list = await Axios.get("/api/data/listings")
+    console.log(list.data)
+    setCardList(list.data)
+  }
+
+  useEffect(()=>{
+    Cards()
+  },[])
+console.log(cardList,"gggg");
 
   return (
     <div className="property-card">
@@ -41,7 +53,7 @@ function Card({ card }) {
         modules={[Pagination, Navigation]}
         className="swiper-container"
       >
-        {card?.imgSrc?.map((src, i) => (
+        {card?.properties?.map((src, i) => (
           <SwiperSlide key={i}>
             <img
               src={src}
@@ -68,13 +80,12 @@ function Card({ card }) {
 
       <div className="card-info">
         <h3 className="card-title">{card.title}</h3>
-        <div className="card-rating">
+        {/* <div className="card-rating">
           <FaStar />
           <p>{card.rating}</p>
-        </div>
+        </div> */}
       </div>
-      <p style={{ margin: 0, color: "gray" }}>{card.place}</p>
-      <p style={{ margin: 0, color: "gray" }}>{card.date}</p>
+      <p style={{ margin: 0, color: "gray" }}>{card.locationValue.location}</p>
       <p style={{ margin: 0, color: "black", fontSize: ".8rem" }}>
         {" "}
         <span style={{ fontWeight: "600" }}>₹{card.price}</span> night{" "}

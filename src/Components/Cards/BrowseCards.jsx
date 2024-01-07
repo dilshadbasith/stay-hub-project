@@ -25,7 +25,7 @@ function BrowseCards() {
       {data.map((item, index) => (
         <div key={index}>
           <div key={index} className="browse-div">
-            <h2 className="browse-title">{item.desc}</h2>
+            <h2 className="browse-title">{item.description}</h2>
             <div className="img-main-div">
               <div>
                 <img src={item.imgSrc[0]} alt="image" className="img1" />

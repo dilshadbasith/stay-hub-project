@@ -4,9 +4,12 @@ import "../Airbnb-components/Airbnb.css";
 import { MdOutlineAddHome } from "react-icons/md";
 import { myContext } from "../Context";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function AirbnbNavbar() {
   const navigate = useNavigate();
+  const { currentUser } = useSelector((state) => state.user);
+  const {handleLoginOpen}=useContext(myContext)
   return (
     <>
       <div className="navbar-div">
@@ -18,10 +21,23 @@ function AirbnbNavbar() {
             <h4>Ready to Airbnb it?</h4>
           </div>
           <div>
-            <button className="setup-btn" onClick={() => navigate("/rentpage")}>
-              <MdOutlineAddHome className="home-icon" />
-              Hosting Setup
-            </button>
+            {currentUser ? (
+              <button
+                className="setup-btn"
+                onClick={() => navigate("/rentpage")}
+              >
+                <MdOutlineAddHome className="home-icon" />
+                Hosting Setup
+              </button>
+            ) : (
+              <button
+                className="setup-btn"
+                onClick={() => handleLoginOpen()}
+              >
+                <MdOutlineAddHome className="home-icon" />
+                Hosting Setup
+              </button>
+            )}
           </div>
         </div>
       </div>
