@@ -29,14 +29,14 @@ function Card({ card }) {
 
   async function Cards(){
     const list = await Axios.get("/api/data/listings")
-    console.log(list.data)
+    // console.log(list.data)
     setCardList(list.data)
   }
 
   useEffect(()=>{
     Cards()
   },[])
-console.log(cardList,"gggg");
+// console.log(cardList,"gggg");
 
   return (
     <div className="property-card">
@@ -58,7 +58,7 @@ console.log(cardList,"gggg");
             <img
               src={src}
               className="card-img"
-              onClick={() => navigate(`/browsecard/${card.id}`)}
+              onClick={() => navigate(`/browsecard/${card._id}`)}
             />
             <div
               style={{

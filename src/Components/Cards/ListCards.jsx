@@ -13,7 +13,7 @@ function ListCards() {
 
   async function Cards(){
     const list = await Axios.get("/api/data/listings")
-    console.log(list.data)
+    // console.log(list.data)
     setCardList(list.data.data)
   }
 

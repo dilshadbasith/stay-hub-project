@@ -9,15 +9,18 @@ import Axios from "../../lib/Axios";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 import { Loading } from "./Loading";
+import { useNavigate } from "react-router-dom";
 
 export default function RentPage() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isLastStep, setIsLastStep] = React.useState(false);
   const [isFirstStep, setIsFirstStep] = React.useState(false);
   const [category, setCategory] = useState({ category: "" });
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [files, setFiles] = useState([]);
   const [cookies] = useCookies(["access_token"]);
+  const navigate = useNavigate()
 
   const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
@@ -35,6 +38,7 @@ export default function RentPage() {
   });
   const handleCategoryChange = (label) => {
     setFormdata({ ...formdata, category: label });
+    setSelectedCategory(label);
   };
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -88,8 +92,10 @@ export default function RentPage() {
         headers: { Authorization: `Bearer ${cookies.access_token}` },
       });
       console.log(res);
-      toast.success("Listing Created SuccesFully");
+      toast.success("Listing will create after admin approved!");
+      navigate('/')
     } catch (error) {
+      toast("error in creating")
       console.log(error);
     }
   };
@@ -117,7 +123,7 @@ export default function RentPage() {
               {links.map((item, index) => (
                 <div
                   key={index}
-                  className="categ-div"
+                  className={`categ-div ${selectedCategory === item.label ? 'selected' : ''}`}
                   onClick={() => handleCategoryChange(item.label)}
                 >
                   {item.imgSrc}
@@ -189,7 +195,7 @@ export default function RentPage() {
                 setFiles(e.target.files);
               }}
             ></input>
-            <button onClick={handleImageUpload}>Upload</button>
+            <button onClick={handleImageUpload} className="upload-btn">Upload</button><br /><br />
             {uploading &&
             (<Loading/>)
             }

@@ -17,6 +17,10 @@
     cursor: pointer;
     transition: .3s;
 }
+.categ-div.selected {
+    background-color: black;
+    color: white;
+  }
 .categ-div:hover{
     background-color: black;
     color: aliceblue;
@@ -52,3 +56,11 @@
     height: 3rem;
     width: 20rem;
 }
+.upload-btn{
+    background-color: blue;
+    color: white;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+

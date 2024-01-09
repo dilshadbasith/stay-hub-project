@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { Avatar } from "@mui/material";
 import { logout } from "../../Redux/Reducers/UserReducer";
+import { toast } from "react-toastify";
 
 
 export default function BasicMenu() {
@@ -37,6 +38,7 @@ export default function BasicMenu() {
       navigate('/')
       dispatch(logout())
     }
+    toast.success("logout successfully")
   }
   return (
     <div>

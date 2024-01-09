@@ -36,7 +36,7 @@ function Icons() {
             onClick={() => setSelectedFilter(index)}
           >
 
-            <div className="link-image">
+            <div className="link-image" >
             {item.imgSrc}
             </div>
             <p

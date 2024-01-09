@@ -18,6 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RentPage from "./Components/RentPage/RentPage";
 import { BlockedUsers } from "./Components/Admin/BlockedUsers";
 import UserProfile from "./Components/UserComponent/UserProfile";
+import Requests from "./Components/Admin/Requests";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -57,6 +58,7 @@ function App() {
             <Route path="/dash" element={<Dash />} />
             <Route path="/userlist" element={<UserList />} />
             <Route path="/blockedusers" element={<BlockedUsers />} />
+            <Route path="/requests" element={<Requests />} />
           </Route>
         </Routes>
       </myContext.Provider>

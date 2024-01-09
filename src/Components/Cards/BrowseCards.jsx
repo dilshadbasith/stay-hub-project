@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { myContext } from "../Context";
 import { useParams } from "react-router-dom";
 import Navigationbar from "../Header/Navigationbar";
@@ -9,50 +9,65 @@ import WorldMap from "../Map/WorldMap";
 import LoginModal from "../Modals/LoginModal";
 import DialogWithForm from "../Modals/RegisterModal";
 import { useSelector } from "react-redux";
+import Axios from "../../lib/Axios";
 
 function BrowseCards() {
   const { open, loginOpen } = useContext(myContext);
   const { id } = useParams();
-  const cards = useSelector((state) => state.listingCard);
+  const [showcard, setShowcard] = useState(null);
 
-  const data = cards.filter((item) => item.id == id);
-  console.log(data);
+  // const cards = useSelector((state) => state.listingCard);
+
+  async function ViewCards(){
+    try {
+      const list = await Axios.get(`/api/data/listings/${id}`);
+      // console.log(list.data, "lk");
+      setShowcard(list.data.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  useEffect(()=>{
+    ViewCards()
+  },[])
+
   return (
     <div>
       <Navigationbar />
       {loginOpen && <LoginModal />}
       {open && <DialogWithForm />}
-      {data.map((item, index) => (
-        <div key={index}>
-          <div key={index} className="browse-div">
-            <h2 className="browse-title">{item.description}</h2>
+      
+        <div >
+          <div className="browse-div">
+            <h2 className="browse-title"><u>{showcard?.title}</u></h2>
             <div className="img-main-div">
               <div>
-                <img src={item.imgSrc[0]} alt="image" className="img1" />
+                <img src={showcard?.properties[0]} alt="image" className="img1" />
               </div>
               <div className="img-sub-div">
-                <img src={item.imgSrc[1]} alt="image" className="img2" />
-                <img src={item.imgSrc[2]} alt="image" className="img2" />
+                <img src={showcard?.properties[1]} alt="image" className="img2" />
+                <img src={showcard?.properties[2]} alt="image" className="img2" />
               </div>
               <div className="img-sub-div">
-                <img src={item.imgSrc[3]} alt="image" className="img2" />
-                <img src={item.imgSrc[4]} alt="image" className="img2" />
+                <img src={showcard?.properties[3]} alt="image" className="img2" />
+                <img src={showcard?.properties[4]} alt="image" className="img2" />
               </div>
             </div>
           </div>
           <div style={{ display: "flex", justifyContent: "space-around" }}>
             <div style={{display:"flex", flexDirection:"column", width:"55rem"}}>
               <h1 style={{ paddingLeft: "2rem" }} className="spec">
-                {item.spec}
+                Bedrooms: {showcard?.roomCount} ◉ Bathrooms: {showcard?.bathroomCount} ◉ Guest Capacity: {showcard?.guestCount}
               </h1>
-              <p style={{ paddingLeft: "2rem" }}>{item.desc2}</p>
+              <p style={{ paddingLeft: "2rem" }}>About:{showcard?.description}</p>
             </div>
 
             <BookingForm />
           </div>
           <WorldMap />
         </div>
-      ))}
+
       <Footer />
     </div>
   );

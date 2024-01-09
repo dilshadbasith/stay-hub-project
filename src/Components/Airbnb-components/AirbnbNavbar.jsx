@@ -5,13 +5,16 @@ import { MdOutlineAddHome } from "react-icons/md";
 import { myContext } from "../Context";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import LoginModal from "../Modals/LoginModal";
 
 function AirbnbNavbar() {
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
+  const {  loginOpen } = useContext(myContext);
   const {handleLoginOpen}=useContext(myContext)
   return (
     <>
+    {loginOpen && <LoginModal />}
       <div className="navbar-div">
         <div>
           <img src={logo} alt="logo" className="airbnb-logo" />
