@@ -19,6 +19,7 @@ import RentPage from "./Components/RentPage/RentPage";
 import { BlockedUsers } from "./Components/Admin/BlockedUsers";
 import UserProfile from "./Components/UserComponent/UserProfile";
 import Requests from "./Components/Admin/Requests";
+import Booking from "./Components/Bookings/Booking";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -52,6 +53,9 @@ function App() {
           <Route path="/airbnbhome" element={<AirbnbYourHome />} />
           <Route path="/rentpage" element={<RentPage />} />
           <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/trips" element={<Booking />} />
+
+
 
           <Route path="/adminhome" element={<AdminHome />} />
           <Route element={<AdminHome />}>

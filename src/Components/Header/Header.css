@@ -11,6 +11,7 @@
 }
 .logo{
     height: 2rem;
+    cursor: pointer;
 }
 .search-bar{
     display: flex;

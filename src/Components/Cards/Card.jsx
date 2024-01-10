@@ -16,7 +16,6 @@ import Axios from "../../lib/Axios";
 function Card({ card }) {
   const [isClicked, setIsClicked] = useState(false);
   const [cardList, setCardList] = useState([]);
-
   const navigate = useNavigate();
 
 
@@ -54,6 +53,7 @@ function Card({ card }) {
         className="swiper-container"
       >
         {card?.properties?.map((src, i) => (
+          
           <SwiperSlide key={i}>
             <img
               src={src}

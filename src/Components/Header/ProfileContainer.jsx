@@ -68,7 +68,8 @@ export default function BasicMenu() {
       >
         <MenuItem >{`Hello ${currentUser?.name}`}</MenuItem>
         <MenuItem onClick={()=>navigate('/userprofile')}>Profile</MenuItem>
-        <MenuItem onClick={()=>{handleLogout();setAnchorEl(null);}}>Logout</MenuItem><br />
+        <MenuItem onClick={()=>navigate('/trips')}>Trips</MenuItem>
+        <MenuItem onClick={()=>{handleLogout();setAnchorEl(null);}}>Logout</MenuItem>
       </Menu>
 
       ):(

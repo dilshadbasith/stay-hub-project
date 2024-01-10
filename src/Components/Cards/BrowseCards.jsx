@@ -18,7 +18,7 @@ function BrowseCards() {
 
   // const cards = useSelector((state) => state.listingCard);
 
-  async function ViewCards(){
+  async function ViewCards() {
     try {
       const list = await Axios.get(`/api/data/listings/${id}`);
       // console.log(list.data, "lk");
@@ -28,45 +28,50 @@ function BrowseCards() {
     }
   }
 
-  useEffect(()=>{
-    ViewCards()
-  },[])
+  useEffect(() => {
+    ViewCards();
+  }, []);
 
   return (
     <div>
       <Navigationbar />
       {loginOpen && <LoginModal />}
       {open && <DialogWithForm />}
-      
-        <div >
-          <div className="browse-div">
-            <h2 className="browse-title"><u>{showcard?.title}</u></h2>
-            <div className="img-main-div">
-              <div>
-                <img src={showcard?.properties[0]} alt="image" className="img1" />
-              </div>
-              <div className="img-sub-div">
-                <img src={showcard?.properties[1]} alt="image" className="img2" />
-                <img src={showcard?.properties[2]} alt="image" className="img2" />
-              </div>
-              <div className="img-sub-div">
-                <img src={showcard?.properties[3]} alt="image" className="img2" />
-                <img src={showcard?.properties[4]} alt="image" className="img2" />
-              </div>
-            </div>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <div style={{display:"flex", flexDirection:"column", width:"55rem"}}>
-              <h1 style={{ paddingLeft: "2rem" }} className="spec">
-                Bedrooms: {showcard?.roomCount} ◉ Bathrooms: {showcard?.bathroomCount} ◉ Guest Capacity: {showcard?.guestCount}
-              </h1>
-              <p style={{ paddingLeft: "2rem" }}>About:{showcard?.description}</p>
-            </div>
 
-            <BookingForm />
+      <div>
+        <div className="browse-div">
+          <h2 className="browse-title">
+            <u>{showcard?.title}</u>
+          </h2>
+          <div className="img-main-div">
+            <div>
+              <img src={showcard?.properties[0]} alt="image" className="img1" />
+            </div>
+            <div className="img-sub-div">
+              <img src={showcard?.properties[1]} alt="image" className="img2" />
+              <img src={showcard?.properties[2]} alt="image" className="img2" />
+            </div>
+            <div className="img-sub-div">
+              <img src={showcard?.properties[3]} alt="image" className="img2" />
+              <img src={showcard?.properties[4]} alt="image" className="img2" />
+            </div>
           </div>
-          <WorldMap />
         </div>
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <div
+            style={{ display: "flex", flexDirection: "column", width: "55rem" }}
+          >
+            <h1 style={{ paddingLeft: "2rem" }} className="spec">
+              Bedrooms: {showcard?.roomCount} ◉ Bathrooms:{" "}
+              {showcard?.bathroomCount} ◉ Guest Capacity: {showcard?.guestCount}
+            </h1>
+            <p style={{ paddingLeft: "2rem" }}>About:{showcard?.description}</p>
+          </div>
+
+          <BookingForm night={showcard?.price} listID={showcard?._id} />
+        </div>
+        <WorldMap />
+      </div>
 
       <Footer />
     </div>

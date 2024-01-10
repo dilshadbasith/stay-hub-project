@@ -39,7 +39,7 @@ dispatch(signInStart())
       const response = await Axios.post("/api/auth/login", formdata);
       if (response.data.role === "admin") {
         toast.success("Admin Login Successfull!");
-        navigate("/adminhome");
+        navigate("/dash");
         setCookie("access_token", response.data.accessToken);
         handleLoginOpen();
       } else {

@@ -18,7 +18,7 @@ function Navigationbar() {
   };
   return (
     <div className="navbar">
-      <img src={Logo} alt="logo" className="logo" />
+      <img src={Logo} alt="logo" className="logo"  onClick={()=>navigate('/')}/>
       <div
         className={`search-bar ${isInputMode ? "input-mode" : ""}`}
         onClick={handleSearchBarClick}
