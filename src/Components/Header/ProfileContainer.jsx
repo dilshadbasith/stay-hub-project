@@ -27,8 +27,10 @@ export default function BasicMenu() {
     setAnchorEl(null);
   };
   const {handleOpen,handleLoginOpen}=useContext(myContext)
+  const { currentUser } = useSelector((state) => state.user);
 
-  const {currentUser}= useSelector((state)=>state.user)
+
+  
   // console.log(currentUser,"hi")
 
 
@@ -52,7 +54,7 @@ export default function BasicMenu() {
         <div className="profile-div">
           <MenuIcon />
           {/* <IoPersonCircleSharp  className="avatar" /> */}
-          <Avatar/>
+          <Avatar src={currentUser?.image}/>
         </div>
       </Button>
       {currentUser?(
@@ -67,7 +69,7 @@ export default function BasicMenu() {
         sx={{".MuiPaper-root":{borderRadius:"1rem"}}}
       >
         <MenuItem >{`Hello ${currentUser?.name}`}</MenuItem>
-        <MenuItem onClick={()=>navigate('/userprofile')}>Profile</MenuItem>
+        <MenuItem onClick={()=>navigate('/userprofile')}>Account</MenuItem>
         <MenuItem onClick={()=>navigate('/trips')}>Trips</MenuItem>
         <MenuItem onClick={()=>{handleLogout();setAnchorEl(null);}}>Logout</MenuItem>
       </Menu>

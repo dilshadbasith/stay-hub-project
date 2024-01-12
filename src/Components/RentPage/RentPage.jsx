@@ -20,7 +20,7 @@ export default function RentPage() {
   const [uploading, setUploading] = useState(false);
   const [files, setFiles] = useState([]);
   const [cookies] = useCookies(["access_token"]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
@@ -93,9 +93,9 @@ export default function RentPage() {
       });
       console.log(res);
       toast.success("Listing will create after admin approved!");
-      navigate('/')
+      navigate("/");
     } catch (error) {
-      toast("error in creating")
+      toast("error in creating");
       console.log(error);
     }
   };
@@ -123,7 +123,9 @@ export default function RentPage() {
               {links.map((item, index) => (
                 <div
                   key={index}
-                  className={`categ-div ${selectedCategory === item.label ? 'selected' : ''}`}
+                  className={`categ-div ${
+                    selectedCategory === item.label ? "selected" : ""
+                  }`}
                   onClick={() => handleCategoryChange(item.label)}
                 >
                   {item.imgSrc}
@@ -158,22 +160,23 @@ export default function RentPage() {
             <h1 className="rent-h1">Rent your Property</h1>
             <h3 className="rent-categ">Give Information About It.</h3>
             <div
-              style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+              // style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+              className="counter-main-div"
             >
               <div
-                style={{ display: "flex", gap: "1rem", alignItems: "center" }}
+                style={{ display: "flex",gap:"15rem", alignItems: "center" ,justifyContent:"space-between"}}
               >
-                <h4 style={{ fontSize: "1.5rem" }}>Bedrooms:</h4>
-                <Counter id="roomCount" onChange={handleCountChange} />
+                <div><h4 style={{ fontSize: "1.5rem" }}>Bedrooms:</h4></div>
+                <div><Counter id="roomCount" onChange={handleCountChange} /></div>
               </div>
               <div
-                style={{ display: "flex", gap: "1rem", alignItems: "center" }}
+                style={{ display: "flex", gap: "15rem", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Bathrooms:</h4>
                 <Counter id="bathroomCount" onChange={handleCountChange} />
               </div>
               <div
-                style={{ display: "flex", gap: "1rem", alignItems: "center" }}
+                style={{ display: "flex", gap: "12rem", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Guest Capacity:</h4>
                 <Counter id="guestCount" onChange={handleCountChange} />
@@ -195,10 +198,12 @@ export default function RentPage() {
                 setFiles(e.target.files);
               }}
             ></input>
-            <button onClick={handleImageUpload} className="upload-btn">Upload</button><br /><br />
-            {uploading &&
-            (<Loading/>)
-            }
+            <button onClick={handleImageUpload} className="upload-btn">
+              Upload
+            </button>
+            <br />
+            <br />
+            {uploading && <Loading />}
           </div>
         )}
         {activeStep === 4 && (
@@ -233,7 +238,7 @@ export default function RentPage() {
         )}
         <div className="mt-16 flex justify-between"></div>
       </form>
-      <div style={{display:"flex",justifyContent:"space-between"}}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Button onClick={handlePrev} disabled={isFirstStep}>
           Prev
         </Button>

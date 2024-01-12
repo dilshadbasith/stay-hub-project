@@ -1,66 +1,108 @@
-.rent-h1{
-    font-size: 3rem;
-    text-align: center;
+.rent-h1 {
+  font-size: 3rem;
+  text-align: center;
 }
-.rent-categ{
-    font-size: 2rem;
+.rent-categ {
+  font-size: 2rem;
 }
-.categ-div{
-    width: 8rem;
-    height: 5rem;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: .3s;
+.categ-div {
+  width: 8rem;
+  height: 5rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
 .categ-div.selected {
-    background-color: black;
-    color: white;
-  }
-.categ-div:hover{
-    background-color: black;
-    color: aliceblue;
+  background-color: black;
+  color: white;
 }
-.categ-main-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
+.categ-div:hover {
+  background-color: black;
+  color: aliceblue;
 }
-.counter-div{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+.categ-main-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
-.counter-btn{
-    font-size: 2rem;
-    background-color: rgb(112, 112, 112);
+.counter-div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.counter-btn {
+  /* font-size: 2rem;
+    background-color: rgb(255, 255, 255);
     padding-left: .9rem;
     padding-right: .9rem;
     border-radius: 50%;
-    color: white;
-}
-.count{
-    font-size: 2rem;
-}
-.textarea{
+    color: rgb(0, 0, 0);
     border: 1px solid black;
-}
-.price-input{
-    border: 1px solid black;
-    height: 3rem;
-    width: 20rem;
-}
-.upload-btn{
-    background-color: blue;
-    color: white;
-    padding: 1rem;
-    border-radius: 2rem;
-}
+    box-shadow: 0 3px 3px rgb(0 0 0 / 10%), 0 4px 12px rgb(0 0 0 / 10%), 0 -3px 3px rgb(0 0 0 / 10%), 0 -4px 12px rgb(0 0 0 / 10%); */
 
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 40px;
+  height: 50px;
+  background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%);
+  border-radius: 30px;
+  border: 1px solid #8f9092;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #606060;
+  text-shadow: 0 1px #fff;
+}
+.counter-btn:hover {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 3px 3px #cecfd1;
+}
+.counter-btn:active {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+.counter-btn:focus {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+    0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+.count {
+  font-size: 2rem;
+}
+.textarea {
+  border: 1px solid black;
+}
+.price-input {
+  border: 1px solid black;
+  height: 3rem;
+  width: 20rem;
+}
+.upload-btn {
+  background-color: blue;
+  color: white;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+.counter-main-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  margin: 3% 30%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 3px 3px rgb(0 0 0 / 10%), 0 4px 12px rgb(0 0 0 / 10%),
+    0 -3px 3px rgb(0 0 0 / 10%), 0 -4px 12px rgb(0 0 0 / 10%);
+}

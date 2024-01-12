@@ -28,10 +28,16 @@ const userSlice = createSlice({
         state.loading = null;
         state.error = null;
         state.currentUser = null;
+      },
+      editAvatar:(state,action)=>{
+      state.currentUser={
+        ...state.currentUser,
+        image:action.payload
+      }
       }
       
 }
 })
 
-export const {signInStart,signinSuccess,signInFailure,logout}=userSlice.actions
+export const {signInStart,signinSuccess,signInFailure,logout,editAvatar}=userSlice.actions
 export default userSlice.reducer
