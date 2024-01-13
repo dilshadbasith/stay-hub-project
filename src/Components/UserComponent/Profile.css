@@ -1,47 +1,4 @@
-/* .profile-main-div{
-    padding: 5rem;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 5rem;
-}
-.profile-sub-div{
-    height: 30rem;
-    width: 20rem;
-    background-color: rgb(202, 202, 202);
-    border-radius: 2rem;
-}
-.profile-sec-div{
-    height: 30rem;
-    width: 45rem;
-    background-color: rgb(202, 202, 202);
-    border-radius: 2rem;
-}
-.profile-head-div{
-    height: 8rem;
-    background-color: #ff385c;
-    border-top-right-radius: 2rem;
-    border-top-left-radius: 2rem;
 
-}
-.avatar-profile{
-    position: absolute;
-    left: 7.7rem;
-    top: 5rem;
-}
-.info-div{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-top: 4rem;
-    padding-left: 1.5rem;
-}
-.info-h4{
-    color: #6b6b6b;
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-} */
 .sub-card{
     box-shadow: 0 3px 3px rgb(0 0 0 / 10%), 0 4px 12px rgb(0 0 0 / 10%), 0 -3px 3px rgb(0 0 0 / 10%), 0 -4px 12px rgb(0 0 0 / 10%);
     width: 35rem;
@@ -62,10 +19,13 @@
 }
 .personal-h1{
     font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: bold;
 }
 .personal-div{
     padding-top: .5rem;
-    padding-left: 2rem;
+    padding-left: 4rem;
 }
 .sub-card-h1{
     font-weight: bold;
@@ -75,6 +35,9 @@
     height: 5rem;
     width: 80rem;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   
 }
 .personal-sub-div{
@@ -88,4 +51,9 @@
     color: white;
     padding: .5rem;
     border-radius: 1rem;
+}
+.user-card-list{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }

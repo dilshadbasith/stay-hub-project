@@ -21,6 +21,7 @@ import UserProfile from "./Components/UserComponent/UserProfile";
 import Requests from "./Components/Admin/Requests";
 import Booking from "./Components/Bookings/Booking";
 import PersonalInfo from "./Components/UserComponent/PersonalInfo";
+import UserListing from "./Components/UserComponent/UserListing";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -56,6 +57,7 @@ function App() {
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/trips" element={<Booking />} />
           <Route path="/personal-info" element={<PersonalInfo />} />
+          <Route path="/userlisting" element={<UserListing />} />
 
 
 

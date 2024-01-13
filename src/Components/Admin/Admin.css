@@ -21,3 +21,11 @@
     gap: 2rem;
     flex-wrap: wrap;
 }
+.search-user{
+    width: 60rem;
+    height: 3rem;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 2rem;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 10%), 0 4px 12px rgb(0 0 0 / 10%), 0 -3px 3px rgb(0 0 0 / 10%), 0 -4px 12px rgb(0 0 0 / 10%);
+
+}

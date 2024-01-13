@@ -11,6 +11,7 @@ const TABLE_HEAD = ["Name", "Mobile", "Email", ""];
 export function UserList() {
   const [userlist, setUserlist] = useState([]);
   const [cookies] = useCookies(["access_token"]);
+  const [search, setSearch] = useState("");
 
   async function User() {
     const list = await Axios.get("/api/admin/users", {
@@ -60,86 +61,102 @@ export function UserList() {
   };
 
   return (
-    <Card className="h-full w-full overflow-scroll">
-      <table className="w-full min-w-max table-auto text-left">
-        <thead>
-          <tr>
-            {TABLE_HEAD.map((head) => (
-              <th
-                key={head}
-                className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
-              >
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70"
+    <>
+      <input
+        type="text"
+        className="search-user"
+        placeholder="&nbsp;&nbsp;&nbsp;search user"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <br />
+      <br />
+      <Card className="h-full w-full overflow-scroll">
+        <table className="w-full min-w-max table-auto text-left">
+          <thead>
+            <tr>
+              {TABLE_HEAD.map((head) => (
+                <th
+                  key={head}
+                  className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
                 >
-                  {head}
-                </Typography>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {userlist.map((item, index) => (
-            <tr key={index} className="even:bg-blue-gray-50/50">
-              <td className="p-4">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  {item.name}
-                </Typography>
-              </td>
-              <td className="p-4">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  {item.mobilenumber}
-                </Typography>
-              </td>
-              <td className="p-4">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal"
-                >
-                  {item.email}
-                </Typography>
-              </td>
-              <td className="p-4">
-                <Typography
-                  as="a"
-                  href="#"
-                  variant="small"
-                  color="blue-gray"
-                  className="font-medium"
-                >
-                  {" "}
-                  {item.adminSuspended ? (
-                    <button
-                      className="unblock-btn"
-                      onClick={(e) => handleUnBlock(e, item._id)}
-                    >
-                      unBlock
-                    </button>
-                  ) : (
-                    <button
-                      className="block-btn"
-                      onClick={(e) => handleBlock(e, item._id)}
-                    >
-                      Block
-                    </button>
-                  )}
-                </Typography>
-              </td>
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal leading-none opacity-70"
+                  >
+                    {head}
+                  </Typography>
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </Card>
+          </thead>
+          <tbody>
+            {userlist
+              .filter((item) => {
+                return search.toLowerCase() === ""
+                  ? item
+                  : item.name.toLowerCase().includes(search);
+              })
+              .map((item, index) => (
+                <tr key={index} className="even:bg-blue-gray-50/50">
+                  <td className="p-4">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {item.name}
+                    </Typography>
+                  </td>
+                  <td className="p-4">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {item.mobilenumber}
+                    </Typography>
+                  </td>
+                  <td className="p-4">
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {item.email}
+                    </Typography>
+                  </td>
+                  <td className="p-4">
+                    <Typography
+                      as="a"
+                      href="#"
+                      variant="small"
+                      color="blue-gray"
+                      className="font-medium"
+                    >
+                      {" "}
+                      {item.adminSuspended ? (
+                        <button
+                          className="unblock-btn"
+                          onClick={(e) => handleUnBlock(e, item._id)}
+                        >
+                          unBlock
+                        </button>
+                      ) : (
+                        <button
+                          className="block-btn"
+                          onClick={(e) => handleBlock(e, item._id)}
+                        >
+                          Block
+                        </button>
+                      )}
+                    </Typography>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </Card>
+    </>
   );
 }

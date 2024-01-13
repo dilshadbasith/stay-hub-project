@@ -9,12 +9,15 @@ import Axios from "../../lib/Axios";
 import { editAvatar } from "../../Redux/Reducers/UserReducer";
 import Navigationbar from "../Header/Navigationbar";
 import { Loading } from "../RentPage/Loading";
+import { FaEdit } from "react-icons/fa";
+import { EditingModal } from "../Modals/EditingModal";
 
 function PersonalInfo() {
   const { currentUser } = useSelector((state) => state.user);
   const [file, setFile] = useState(null);
   const [upload, setUpload] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [isEdit,setIsEdit]=useState(false)
 
   // const [image,setImage]=useState();
   const fileRef = useRef(null);
@@ -24,7 +27,7 @@ function PersonalInfo() {
   // console.log(currentUser._id);
 
   const handleFileUpload = async () => {
-      setUploading(true)
+    setUploading(true);
     try {
       const url = await EditAvatar(file);
       await Axios.put(
@@ -37,13 +40,13 @@ function PersonalInfo() {
         }
       );
 
-      setUploading(false)
+      setUploading(false);
       dispatch(editAvatar(url));
       toast.success("Updated sucessfully");
     } catch (error) {
       console.log("from upload", error.message);
       toast.error("updation failed:", error.message);
-      setUploading(false)
+      setUploading(false);
     }
   };
 
@@ -58,7 +61,7 @@ function PersonalInfo() {
       </div>
       <div className="personal-div">
         <h1 className="personal-h1">
-          <u>Personal Info</u>
+          Personal Info
         </h1>
         <input
           type="file"
@@ -93,20 +96,30 @@ function PersonalInfo() {
             Upload
           </button>
         )}
-        {uploading&&<Loading/>}
+        {uploading && <Loading />}
       </div>
       <div className="personal-sub-div">
+          <EditingModal/>
         <div className="personal-sub-div1">
-          <h1 style={{ fontWeight: "bold" }}>Full Name:</h1>
-          <p style={{ color: "gray" }}>{currentUser.name}</p>
+        <div>
+            <h1 style={{ fontWeight: "bold" }}>Full Name:</h1>
+            <p style={{ color: "gray" }}>{currentUser.name}</p>
+          </div>
+          {/* <div><FaEdit style={{cursor:"pointer"}}/></div> */}
         </div>
         <div className="personal-sub-div1">
-          <h1 style={{ fontWeight: "bold" }}>Email:</h1>
-          <p style={{ color: "gray" }}>{currentUser.email}</p>
+        <div>
+            <h1 style={{ fontWeight: "bold" }}>Email:</h1>
+            <p style={{ color: "gray" }}>{currentUser.email}</p>
+          </div>
+          {/* <div><FaEdit style={{cursor:"pointer"}}/></div> */}
         </div>
         <div className="personal-sub-div1">
-          <h1 style={{ fontWeight: "bold" }}>Mobile Number:</h1>
-          <p style={{ color: "gray" }}>{currentUser.mobilenumber}</p>
+        <div>
+            <h1 style={{ fontWeight: "bold" }}>Mobile Number:</h1>
+            <p style={{ color: "gray" }}>{currentUser.mobilenumber}</p>
+          </div>
+          {/* <div><FaEdit style={{cursor:"pointer"}}/></div> */}
         </div>
       </div>
     </div>
