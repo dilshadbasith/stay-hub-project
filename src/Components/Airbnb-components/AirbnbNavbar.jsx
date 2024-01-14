@@ -21,7 +21,7 @@ function AirbnbNavbar() {
         </div>
         <div className="navbar-subdiv">
           <div>
-            <h4>Ready to Airbnb it?</h4>
+            <h4>Ready to Host?</h4>
           </div>
           <div>
             {currentUser ? (

@@ -17,7 +17,7 @@ export function UserList() {
     const list = await Axios.get("/api/admin/users", {
       headers: { Authorization: `Bearer ${cookies.access_token}` },
     });
-    console.log(list.data);
+    // console.log(list.data);
     setUserlist(list.data.data);
   }
 

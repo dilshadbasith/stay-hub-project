@@ -56,4 +56,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding-top: 2rem;
+}
+.fav-h1{
+    text-align: center;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
 }

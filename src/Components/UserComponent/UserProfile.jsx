@@ -27,9 +27,9 @@ function UserProfile() {
            <p style={{color:"gray"}}>See your Reservations</p> 
 
         </div>
-        <div className='sub-card' >
-           <h1 className='sub-card-h1'>Professional hosting tools</h1> 
-           <p style={{color:"gray"}}>Get professionaltools if you manage several properties on stayHub</p> 
+        <div className='sub-card' onClick={()=>navigate('/favorites')}>
+           <h1 className='sub-card-h1'>Favorites</h1> 
+           <p style={{color:"gray"}}>See your favorites</p> 
 
         </div>
         <div className='sub-card' >

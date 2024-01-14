@@ -33,17 +33,41 @@ const userSlice = createSlice({
         image: action.payload,
       };
     },
-    updateUser:(state,action)=>{
-        state.currentUser={
-            ...state.currentUser,
-            name:action.payload.name,
-            email:action.payload.email,
-            mobilenumber:action.payload.mobilenumber
-        }
-    }
+    updateUser: (state, action) => {
+      state.currentUser = {
+        ...state.currentUser,
+        name: action.payload.name,
+        email: action.payload.email,
+        mobilenumber: action.payload.mobilenumber,
+      };
+    },
+    addToFav: (state, action) => {
+      state.currentUser = {
+        ...state.currentUser,
+        favoriteIds: [...state.currentUser.favoriteIds, action.payload],
+      };
+    },
+    removeFromFav: (state, action) => {
+      state.currentUser = {
+        ...state.currentUser,
+        favoriteIds: state.currentUser.favoriteIds.filter(
+          (item) => item !== action.payload
+        ),
+      };
+    },
+
   },
 });
 
-export const { signInStart, signinSuccess, signInFailure, logout, editAvatar,updateUser } =
-  userSlice.actions;
+export const {
+  signInStart,
+  signinSuccess,
+  signInFailure,
+  logout,
+  editAvatar,
+  updateUser,
+  addToFav,
+  removeFromFav,
+  toggleFavorite,
+} = userSlice.actions;
 export default userSlice.reducer;
