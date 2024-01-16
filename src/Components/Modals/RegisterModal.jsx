@@ -14,6 +14,7 @@ import * as Yup from "yup";
 import "./LoginModal.css";
 import Axios from "../../lib/Axios";
 import { toast } from "react-toastify";
+import GAuth from "../GoogleAuth/GAuth";
 
 export default function DialogWithForm() {
   const { handleOpen } = useContext(myContext);
@@ -40,7 +41,7 @@ export default function DialogWithForm() {
       } catch (error) {
         if (error.response.status == 403) {
           toast.error("User already exists,Try with another email!");
-          handleOpen()
+          handleOpen();
         } else {
           toast.error("Registration failed. Please try again.");
           handleOpen();
@@ -113,6 +114,9 @@ export default function DialogWithForm() {
               <Button type="submit" variant="gradient" fullWidth color="red">
                 SignUp
               </Button>
+              <div className="pt-5">
+                <GAuth />
+              </div>
               {/* <Typography variant="small" className="mt-4 flex justify-center">
               Already have an account?
               <Typography

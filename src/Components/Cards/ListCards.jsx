@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../Cards/Cards.css";
 import Card from "./Card";
 import Axios from "../../lib/Axios";
+import { myContext } from "../Context";
 
 function ListCards({ searchQuery }) {
   const [cardList, setCardList] = useState([]);
+  const {searchs}=useContext(myContext)
   // console.log({searchQuery});
 
   async function Cards() {
@@ -27,7 +29,13 @@ function ListCards({ searchQuery }) {
       {cardList.length === 0 && searchQuery ? (
         <h1 className="no-list">No Listings Found!</h1>
       ) : (
-        cardList.map((card, i) => <Card card={card} key={i} />)
+        cardList
+          .filter((item) => {
+            return searchs?.toLowerCase() === ""
+              ? item
+              : item?.title?.toLowerCase()?.includes(searchs);
+          })
+          .map((card, i) => <Card card={card} key={i} />)
       )}
     </div>
   );

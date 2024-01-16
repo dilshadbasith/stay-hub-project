@@ -17,14 +17,19 @@ import Axios from "../../lib/Axios";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
-import { signInFailure, signInStart, signinSuccess } from "../../Redux/Reducers/UserReducer";
+import {
+  signInFailure,
+  signInStart,
+  signinSuccess,
+} from "../../Redux/Reducers/UserReducer";
+import GAuth from "../GoogleAuth/GAuth";
 
 function LoginModal() {
   const { handleLoginOpen } = useContext(myContext);
   const [formdata, setFormdata] = useState({ email: "", password: "" });
   const [_, setCookie] = useCookies(["access_token"]);
   const navigate = useNavigate();
- const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleChange = async (e) => {
     const { id, value } = e.target;
@@ -34,7 +39,7 @@ function LoginModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-dispatch(signInStart())
+    dispatch(signInStart());
     try {
       const response = await Axios.post("/api/auth/login", formdata);
       if (response.data.role === "admin") {
@@ -45,17 +50,17 @@ dispatch(signInStart())
       } else {
         toast.success("Login Successfull!");
         navigate("/");
-        setCookie("access_token",response.data.accessToken)
+        setCookie("access_token", response.data.accessToken);
         handleLoginOpen();
-        dispatch(signinSuccess(response.data))
+        dispatch(signinSuccess(response.data));
       }
     } catch (error) {
-      if(error.response.status == 401){
-        toast.error("Login failed. You are a Suspended User")
-        dispatch(signInFailure())
-      }else{
+      if (error.response.status == 401) {
+        toast.error("Login failed. You are a Suspended User");
+        dispatch(signInFailure());
+      } else {
         toast.error("Login failed. Please try again.");
-        dispatch(signInFailure())
+        dispatch(signInFailure());
       }
       handleLoginOpen();
     }
@@ -96,6 +101,10 @@ dispatch(signInStart())
               <Button variant="gradient" fullWidth color="red" type="submit">
                 Sign In
               </Button>
+              <div className="pt-5">
+                <GAuth />
+              </div>
+
               {/* <Typography variant="small" className="mt-4 flex justify-center">
               Don't have an account?
               <Typography

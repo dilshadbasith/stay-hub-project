@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../Assets/StayHub.png";
 import "../Header/Header.css";
 import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
@@ -8,10 +8,12 @@ import { IoIosGlobe } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import MobileSearchbar from "../MobileSearchbar/MobileSearchbar";
 import SimpleBottomNavigation from "./BottomNav";
+import { myContext } from "../Context";
 
 function Navigationbar() {
   const navigate = useNavigate();
   const [isInputMode, setIsInputMode] = useState(false);
+  const {setSearchs}=useContext(myContext)
 
   const handleSearchBarClick = () => {
     setIsInputMode(true);
@@ -29,6 +31,7 @@ function Navigationbar() {
               type="text"
               className="styled-input"
               placeholder="Search..."
+              onChange={(e)=>setSearchs(e.target.value)}
             />
             <div className="search-icon-div">
               <FaSearch className="search-icon" />

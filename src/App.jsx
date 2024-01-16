@@ -31,6 +31,8 @@ function App() {
   const handleOpen = () => setOpen((cur) => !cur);
   const [loginOpen, setLoginOpen] = React.useState(false);
   const handleLoginOpen = () => setLoginOpen((cur) => !cur);
+  const [searchs, setSearchs] = useState("");
+
 
   return (
     <>    
@@ -47,6 +49,8 @@ function App() {
           handleLoginOpen,
           cards,
           setCards,
+          searchs,
+          setSearchs
         }}
       >
     
