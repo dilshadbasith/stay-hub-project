@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Axios from "../../lib/Axios";
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
+import { Avatar } from "@mui/material";
 
 const TABLE_HEAD = ["Name", "Mobile", "Email", ""];
 
@@ -99,7 +100,8 @@ export function UserList() {
               })
               .map((item, index) => (
                 <tr key={index} className="even:bg-blue-gray-50/50">
-                  <td className="p-4">
+                  <td className="p-4 flex items-center gap-1">
+                    <Avatar src={item.image}/>
                     <Typography
                       variant="small"
                       color="blue-gray"

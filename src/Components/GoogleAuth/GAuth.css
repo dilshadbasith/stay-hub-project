@@ -1,7 +1,14 @@
-.auth-btn{
-    width: 18.2rem;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
-    height: 2rem;
-    border-radius: .5rem;
+/* .auth-btn {
+  padding: .5rem 4.3rem .5rem 4.3rem;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.g-img{
+    height: 1.6rem;
 }
