@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navigationbar from '../Header/Navigationbar'
 import {
     Card,
@@ -10,11 +10,13 @@ import {
   } from "@material-tailwind/react";
 import Axios from '../../lib/Axios';
 import { useCookies } from 'react-cookie';
+import { myContext } from '../Context';
   
 
 function Favorites() {
-    const [favorites,setFavorites]=useState([])
+    // const [favorites,setFavorites]=useState([])
   const [cookies] = useCookies(["access_token"]);
+  const {favorites,setFavorites}=useContext(myContext)
 
 
     async function Fav(){

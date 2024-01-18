@@ -113,12 +113,13 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-    background-color: #fff; /* Set background color as needed */
-    color: #000; /* Set text color as needed */
+    background-color: #fff; 
+    color: #000;
     font-size: 20px;
-    border: 1px solid #ccc; /* Add border for a stylish look */
-    border-radius: 5px; /* Add border radius for a rounded look */
-    /* z-index: -1; */
+    border: 2px solid #ccc;
+    border-radius: 50%; 
+    padding: 1.3rem;
+
   }
   
   .left-arrow {

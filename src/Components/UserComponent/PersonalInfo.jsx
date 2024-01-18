@@ -11,6 +11,12 @@ import Navigationbar from "../Header/Navigationbar";
 import { Loading } from "../RentPage/Loading";
 import { FaEdit } from "react-icons/fa";
 import { EditingModal } from "../Modals/EditingModal";
+import {
+  Dialog,
+  DialogHeader,
+  DialogBody,
+} from "@material-tailwind/react";
+import { IoClose } from "react-icons/io5";
 
 function PersonalInfo() {
   const { currentUser } = useSelector((state) => state.user);
@@ -23,6 +29,9 @@ function PersonalInfo() {
   const fileRef = useRef(null);
   const [cookies] = useCookies(["access_token"]);
   const dispatch = useDispatch();
+//for modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
 
   // console.log(currentUser._id);
 
@@ -70,7 +79,22 @@ function PersonalInfo() {
           hidden
           accept="image/*"
         />
-        <Avatar sx={{ width: 100, height: 100 }} src={currentUser?.image} />
+        <Avatar sx={{ width: 100, height: 100 }} src={currentUser?.image} onClick={handleOpen}/>
+{/* ////////////////dialog////////////// */}
+
+        <Dialog  open={open} handler={handleOpen}>
+        <DialogHeader className="justify-between">
+        <IoClose onClick={handleOpen}/>
+        </DialogHeader>
+        <DialogBody>
+          <img
+            alt="nature"
+            className="h-[30rem] w-[35rem] rounded-lg object-cover object-center"
+            src={currentUser?.image}
+          />
+        </DialogBody>
+      </Dialog>
+{/* ////////////////dialog////////////// */}
         <TbCameraPlus
           style={{
             fontSize: "1.5rem",

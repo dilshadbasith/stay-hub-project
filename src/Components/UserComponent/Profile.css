@@ -8,7 +8,10 @@
     flex-direction: column;
     align-items: center;
     border-radius: .6rem;
+    position: relative;
+    cursor: pointer;
 }
+
 .profile-main-div{
     padding: 3rem;
     display: flex;

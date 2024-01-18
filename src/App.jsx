@@ -32,6 +32,8 @@ function App() {
   const [loginOpen, setLoginOpen] = React.useState(false);
   const handleLoginOpen = () => setLoginOpen((cur) => !cur);
   const [searchs, setSearchs] = useState("");
+  const [favorites,setFavorites]=useState([])
+
 
 
   return (
@@ -50,7 +52,9 @@ function App() {
           cards,
           setCards,
           searchs,
-          setSearchs
+          setSearchs,
+          favorites,
+          setFavorites
         }}
       >
     
