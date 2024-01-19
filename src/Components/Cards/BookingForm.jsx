@@ -49,7 +49,6 @@ const BookingForm = ({ night, listID}) => {
       })
         .then((res) => {
           console.log(res);
-          toast("reservation success")
           navigate(`/payment`)
         })
         .catch((err) => console.log(err));

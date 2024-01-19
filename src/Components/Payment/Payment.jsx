@@ -12,6 +12,7 @@ import Axios from "../../lib/Axios";
 import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
 import '../Payment/Payment.css'
+import { useNavigate } from "react-router-dom";
 // import DefaultLayout from "../components/DefaultLayout";
 // import { useSelector } from "react-redux";
 // import axios from "axios";
@@ -26,10 +27,14 @@ import '../Payment/Payment.css'
 const Payment = () => {
 //   const [car, setCar] = useState({});
 //   const id = currentCarDetails;
-  const { currentUser } = useSelector((state) => state.user);
+const navigate =useNavigate()
+const { currentUser } = useSelector((state) => state.user);
 const [reservation, setReservation] = useState();
-
 const [cookies] = useCookies(["access_token"]);
+const hotelName=reservation && reservation.length > 0 ? reservation[reservation.length - 1]?.listingId?.title : null
+const totalPrice=reservation && reservation.length > 0 ? reservation[reservation.length - 1]?.totalPrice : null 
+const currentBooking = reservation?.[reservation.length - 1] ?? undefined;
+
 
 
 useEffect(() => {
@@ -42,7 +47,9 @@ useEffect(() => {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(reservation && reservation.length > 0 ? reservation[reservation.length - 1] : null);
+
+
+
 
   const Razorpay = async(e)=>{
     e.preventDefault();  
@@ -57,13 +64,13 @@ useEffect(() => {
       handler: function async(response){
         console.log(response,"response");
         const { razorpay_payment_id : payment_id } = response;
-        // console.log(payment_id,"payment ID");
-        // if(response){
-        //   const updateStatus = axios.post("http://localhost:5000/api/admin/payments", {payment_id,car, currentUser ,currentBooking,currentCarDetails,updatedPrice}, {
-        //     headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-        // });
-        //   navigate('/')
-        // }
+        console.log(payment_id,"payment ID");
+        if(response){
+          const updateStatus = Axios.post("/api/users/payments", {payment_id,hotelName, currentUser,currentBooking ,totalPrice}, {
+            headers: { Authorization: `Bearer ${cookies.access_token}` },
+          });
+          navigate('/trips')
+        }
       },
       prefill:{
         name:"Arshaquu",
