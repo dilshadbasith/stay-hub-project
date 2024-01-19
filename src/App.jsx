@@ -23,6 +23,7 @@ import Booking from "./Components/Bookings/Booking";
 import PersonalInfo from "./Components/UserComponent/PersonalInfo";
 import UserListing from "./Components/UserComponent/UserListing";
 import Favorites from "./Components/UserComponent/Favorites";
+import Payment from "./Components/Payment/Payment";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -68,6 +69,7 @@ function App() {
           <Route path="/personal-info" element={<PersonalInfo />} />
           <Route path="/userlisting" element={<UserListing />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/payment" element={<Payment />} />
 
 
 

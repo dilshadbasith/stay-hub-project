@@ -9,6 +9,7 @@ function Booking() {
   const [reservation, setReservation] = useState();
   const [cookies] = useCookies(["access_token"]);
   const { currentUser } = useSelector((state) => state.user);
+  
 
   useEffect(() => {
     Axios.get(`/api/data/reservations/${currentUser._id}`, {
@@ -20,7 +21,7 @@ function Booking() {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(reservation);
+  // console.log(reservation);
   return (
     <div>
       <div>

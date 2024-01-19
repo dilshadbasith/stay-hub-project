@@ -68,6 +68,5 @@ export const {
   updateUser,
   addToFav,
   removeFromFav,
-  toggleFavorite,
 } = userSlice.actions;
 export default userSlice.reducer;

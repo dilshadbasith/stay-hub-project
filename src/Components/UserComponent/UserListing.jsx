@@ -10,10 +10,14 @@ import {
 } from "@material-tailwind/react";
 import Axios from "../../lib/Axios";
 import { useSelector } from "react-redux";
+import { useCookies } from "react-cookie";
+import { toast } from "react-toastify";
 
 function UserListing() {
   const [cardList, setCardList] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
+  const [cookies] = useCookies(["access_token"]);
+
 
   async function Cards() {
     const list = await Axios.get(`/api/data/listings`);
@@ -27,7 +31,19 @@ function UserListing() {
   // console.log(currentUser,"poo")
 
   const filtered = cardList.filter((item) => item.userId == currentUser._id);
-  console.log(filtered, "f");
+  // console.log(filtered, "f");
+
+
+  const handleDelete=async(id)=>{
+    if(window.confirm("Are you sure to delete?")){
+      await Axios.delete(`/api/users/listings/${id}`,{
+        headers: { Authorization: `Bearer ${cookies.access_token}` },
+      })
+      toast.success("successfully deleted")
+      Cards();
+    }
+  }
+
   return (
     <div>
       <div className="... sticky top-0 z-10">
@@ -51,9 +67,9 @@ function UserListing() {
               <Typography>Price:{item?.price}</Typography>
               <Typography>Category:{item?.category}</Typography>
             </CardBody>
-            {/* <CardFooter className="pt-0">
-              <Button>Read More</Button>
-            </CardFooter> */}
+            <CardFooter className="pt-0">
+              <Button onClick={()=>handleDelete(item._id)}>Delete</Button>
+            </CardFooter>
           </Card>
         ))}
       </div>

@@ -1,5 +1,4 @@
 import { Card, Typography } from "@material-tailwind/react";
-import { MdDelete } from "react-icons/md";
 import "../Admin/Admin.css";
 import { useEffect, useState } from "react";
 import Axios from "../../lib/Axios";

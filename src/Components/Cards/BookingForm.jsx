@@ -8,8 +8,9 @@ import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { myContext } from "../Context";
+import { useNavigate } from "react-router-dom";
 
-const BookingForm = ({ night, listID }) => {
+const BookingForm = ({ night, listID}) => {
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(
     new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
@@ -18,6 +19,7 @@ const BookingForm = ({ night, listID }) => {
   const [cookies] = useCookies(["access_token"]);
   const {currentUser}= useSelector((state)=>state.user);
   const {handleLoginOpen}=useContext(myContext)
+  const navigate = useNavigate()
 
 
   // const handleCheckInDateChange = (date) => {
@@ -33,7 +35,6 @@ const BookingForm = ({ night, listID }) => {
   //   }
   //   setCheckOutDate(date);
   // };
-
   const Reserve = () => {
     if(currentUser){
       const res = {
@@ -49,6 +50,7 @@ const BookingForm = ({ night, listID }) => {
         .then((res) => {
           console.log(res);
           toast("reservation success")
+          navigate(`/payment`)
         })
         .catch((err) => console.log(err));
     }else{
