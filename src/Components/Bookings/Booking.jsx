@@ -9,6 +9,7 @@ function Booking() {
   const [reservation, setReservation] = useState();
   const [cookies] = useCookies(["access_token"]);
   const { currentUser } = useSelector((state) => state.user);
+
   
 
   useEffect(() => {
@@ -22,12 +23,22 @@ function Booking() {
       .catch((err) => console.log(err));
   }, []);
   // console.log(reservation);
+
+  const handleDelete=async(id)=>{
+    if(window.confirm("Are you sure to Cancel?")){
+      await Axios.delete(`/api/users/reservations/${id}`,{
+        headers: { Authorization: `Bearer ${cookies.access_token}` },
+      })
+    }
+    location.reload()
+  }
   return (
     <div>
       <div>
         <Navigationbar />
       </div>
       {reservation?.map((item, i) => (
+        <div className="parent-div-card">
         <div key={i} className="main-card">
           <div style={{ fontWeight: "bold" }}>{item?.listingId?.title}</div>
           <div>
@@ -36,7 +47,7 @@ function Booking() {
           </div>
           <div>
             <p>Checkout date:</p>
-            {item.endDate}
+            {item.endDate} 
           </div>
           <div>₹{item.totalPrice}</div>
           <div>
@@ -46,6 +57,8 @@ function Booking() {
               alt=""
             />
           </div>
+        </div>
+        <button className="cancel" onClick={()=>handleDelete(item._id)}>Cancel Reservation</button>
         </div>
       ))}
     </div>

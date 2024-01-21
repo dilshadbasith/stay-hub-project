@@ -13,6 +13,7 @@ import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
 import '../Payment/Payment.css'
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 // import DefaultLayout from "../components/DefaultLayout";
 // import { useSelector } from "react-redux";
 // import axios from "axios";
@@ -70,6 +71,7 @@ useEffect(() => {
             headers: { Authorization: `Bearer ${cookies.access_token}` },
           });
           navigate('/trips')
+          toast.success("reservation Success")
         }
       },
       prefill:{
@@ -90,27 +92,6 @@ useEffect(() => {
 }
 
   
-
-//   const getCarDetails = async () => {
-//     try {
-//       const response = await axios.post(
-//         `http://localhost:5000/api/auth/details`,
-//         { id }
-//       );
-//       setCar(response.data.cars);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-  
-//   useEffect(() => {
-//     getCarDetails();
-//   }, [currentBooking]);
-
-  
-//   const amountPrice = updatedPrice || 0;
-//   const gstPrice = 500; 
-//   const totalAmount = amountPrice + gstPrice;
 
   return (
     <div>
@@ -142,7 +123,6 @@ useEffect(() => {
           <div style={{ marginTop: '20px', borderTop: '1px solid #ccc', paddingTop: '10px' }}>
             <h4 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Amount Price: {(reservation && reservation.length > 0 ? reservation[reservation.length - 1]?.totalPrice : null)-450}</h4>
             <h4 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Insurance Amount: ₹0.00</h4>
-            <h4 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Delivery Charges: ₹0.00</h4>
             <h4 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>TAX:₹450</h4>
             <h4 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Diff Location Charge: ₹0.00</h4>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginTop: '10px' }}>Total Amount:{reservation && reservation.length > 0 ? reservation[reservation.length - 1]?.totalPrice : null} </h3>

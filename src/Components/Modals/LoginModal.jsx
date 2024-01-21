@@ -23,6 +23,7 @@ import {
   signinSuccess,
 } from "../../Redux/Reducers/UserReducer";
 import GAuth from "../GoogleAuth/GAuth";
+import { adminSigninSuccess } from "../../Redux/Reducers/AdminReducer";
 
 function LoginModal() {
   const { handleLoginOpen } = useContext(myContext);
@@ -47,6 +48,7 @@ function LoginModal() {
         navigate("/dash");
         setCookie("access_token", response.data.accessToken);
         handleLoginOpen();
+        dispatch(adminSigninSuccess(response.data));
       } else {
         toast.success("Login Successfull!");
         navigate("/");

@@ -28,7 +28,6 @@ function UserListing() {
     Cards();
   }, []);
   // console.log(cardList, "k");
-  // console.log(currentUser,"poo")
 
   const filtered = cardList.filter((item) => item.userId == currentUser._id);
   // console.log(filtered, "f");

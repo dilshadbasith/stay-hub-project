@@ -3,11 +3,13 @@ import CardReducer from "../Reducers/CardReducer";
 import UserReducer from "../Reducers/UserReducer";
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
+import AdminReducer from "../Reducers/AdminReducer";
 
 
 const rootReducer = combineReducers({
   listingCard: CardReducer,
   user: UserReducer,
+  Admin:AdminReducer,
 });
 
 const persistConfig = {

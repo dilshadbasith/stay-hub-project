@@ -14,7 +14,7 @@ import AdminHome from "./Components/Admin/AdminHome";
 import Dash from "./Components/Admin/Dash";
 import { UserList } from "./Components/Admin/UserList";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import RentPage from "./Components/RentPage/RentPage";
 import { BlockedUsers } from "./Components/Admin/BlockedUsers";
 import UserProfile from "./Components/UserComponent/UserProfile";
@@ -24,6 +24,7 @@ import PersonalInfo from "./Components/UserComponent/PersonalInfo";
 import UserListing from "./Components/UserComponent/UserListing";
 import Favorites from "./Components/UserComponent/Favorites";
 import Payment from "./Components/Payment/Payment";
+import PrivateRoute from "./Components/PrivateRoute";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -33,13 +34,11 @@ function App() {
   const [loginOpen, setLoginOpen] = React.useState(false);
   const handleLoginOpen = () => setLoginOpen((cur) => !cur);
   const [searchs, setSearchs] = useState("");
-  const [favorites,setFavorites]=useState([])
-
-
+  const [favorites, setFavorites] = useState([]);
 
   return (
-    <>    
-    <ToastContainer autoClose={3000} position="top-center"/>
+    <>
+      <ToastContainer autoClose={3000} position="top-center" />
       <myContext.Provider
         value={{
           modal,
@@ -55,23 +54,23 @@ function App() {
           searchs,
           setSearchs,
           favorites,
-          setFavorites
+          setFavorites,
         }}
       >
-    
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/browsecard/:id" element={<BrowseCards />} />
           <Route path="/airbnbhome" element={<AirbnbYourHome />} />
-          <Route path="/rentpage" element={<RentPage />} />
-          <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/trips" element={<Booking />} />
-          <Route path="/personal-info" element={<PersonalInfo />} />
-          <Route path="/userlisting" element={<UserListing />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/payment" element={<Payment />} />
 
-
+          <Route element={<PrivateRoute/>}>
+            <Route path="/rentpage" element={<RentPage />} />
+            <Route path="/trips" element={<Booking />} />
+            <Route path="/userprofile" element={<UserProfile />} />
+            <Route path="/userlisting" element={<UserListing />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/personal-info" element={<PersonalInfo />} />
+          </Route>
 
           <Route path="/adminhome" element={<AdminHome />} />
           <Route element={<AdminHome />}>
