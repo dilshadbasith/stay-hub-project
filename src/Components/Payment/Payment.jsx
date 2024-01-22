@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import Navigationbar from "../Header/Navigationbar";
 import {
     Card,
     CardHeader,
@@ -14,20 +13,9 @@ import { useSelector } from "react-redux";
 import '../Payment/Payment.css'
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// import DefaultLayout from "../components/DefaultLayout";
-// import { useSelector } from "react-redux";
-// import axios from "axios";
-// import Card from "@mui/material/Card";
-// import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
-// import Typography from "@mui/material/Typography";
-// import "../pages/paymentSection.css";
-// import Footer from "./Footer";
-// import Socialmedia from "./Socialmedia";
+
 
 const Payment = () => {
-//   const [car, setCar] = useState({});
-//   const id = currentCarDetails;
 const navigate =useNavigate()
 const { currentUser } = useSelector((state) => state.user);
 const [reservation, setReservation] = useState();
@@ -95,9 +83,6 @@ useEffect(() => {
 
   return (
     <div>
-      <header className="sticky-top">
-        <Navigationbar />
-      </header>
       <div
         style={{
           display: "flex",
