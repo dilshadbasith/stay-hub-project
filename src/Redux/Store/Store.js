@@ -4,12 +4,14 @@ import UserReducer from "../Reducers/UserReducer";
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
 import AdminReducer from "../Reducers/AdminReducer";
+import BookingReducer from "../Reducers/BookingReducer";
 
 
 const rootReducer = combineReducers({
   listingCard: CardReducer,
   user: UserReducer,
   Admin:AdminReducer,
+  Booking:BookingReducer,
 });
 
 const persistConfig = {

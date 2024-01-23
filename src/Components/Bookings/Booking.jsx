@@ -10,57 +10,73 @@ function Booking() {
   const [cookies] = useCookies(["access_token"]);
   const { currentUser } = useSelector((state) => state.user);
 
-  
+  async function BookingDiv() {
+    const list = await Axios.get(`/api/data/reservations/${currentUser._id}`, {
+      headers: { Authorization: `Bearer ${cookies.access_token}` },
+    });
+    // console.log(list.data);
+    setReservation(list.data.data);
+  }
 
   useEffect(() => {
-    Axios.get(`/api/data/reservations/${currentUser._id}`, {
-      headers: { Authorization: `Bearer ${cookies.access_token}` },
-    })
-      .then((res) => {
-        console.log(res.data.data);
-        setReservation(res.data.data);
-      })
-      .catch((err) => console.log(err));
+    BookingDiv();
   }, []);
+
+  // useEffect(() => {
+  //   Axios.get(`/api/data/reservations/${currentUser._id}`, {
+  //     headers: { Authorization: `Bearer ${cookies.access_token}` },
+  //   })
+  //     .then((res) => {
+  //       console.log(res.data.data);
+  //       setReservation(res.data.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
   // console.log(reservation);
 
-  const handleDelete=async(id)=>{
-    if(window.confirm("Are you sure to Cancel?")){
-      await Axios.delete(`/api/users/reservations/${id}`,{
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure to Cancel?")) {
+      await Axios.delete(`/api/users/reservations/${id}`, {
         headers: { Authorization: `Bearer ${cookies.access_token}` },
-      })
+      });
     }
-    location.reload()
-  }
+    BookingDiv();
+  };
   return (
     <div>
       <div>
         <Navigationbar />
       </div>
-      {reservation?.map((item, i) => (
-        <div className="parent-div-card">
-        <div key={i} className="main-card">
-          <div style={{ fontWeight: "bold" }}>{item?.listingId?.title}</div>
-          <div>
-            <p>Checkin date:</p>
-            {item.startDate}
+      {reservation?.length === 0 ? (
+        <h1 className="no-list">No Bookings!</h1>
+      ) : (
+        reservation?.map((item, i) => (
+          <div className="parent-div-card">
+            <div key={i} className="main-card">
+              <div style={{ fontWeight: "bold" }}>{item?.listingId?.title}</div>
+              <div>
+                <p>Checkin date:</p>
+                {item.startDate}
+              </div>
+              <div>
+                <p>Checkout date:</p>
+                {item.endDate}
+              </div>
+              <div>₹{item.totalPrice}</div>
+              <div>
+                <img
+                  className="booked-img"
+                  src={item?.listingId?.properties[0]}
+                  alt=""
+                />
+              </div>
+            </div>
+            <button className="cancel" onClick={() => handleDelete(item._id)}>
+              Cancel Reservation
+            </button>
           </div>
-          <div>
-            <p>Checkout date:</p>
-            {item.endDate} 
-          </div>
-          <div>₹{item.totalPrice}</div>
-          <div>
-            <img
-              className="booked-img"
-              src={item?.listingId?.properties[0]}
-              alt=""
-            />
-          </div>
-        </div>
-        <button className="cancel" onClick={()=>handleDelete(item._id)}>Cancel Reservation</button>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
 }

@@ -49,7 +49,9 @@ function UserListing() {
         <Navigationbar />
       </div>
       <div className="user-card-list">
-        {filtered.map((item) => (
+        {filtered?.length===0?(
+          <h1 className="no-list">No Listings!</h1>
+        ):(filtered.map((item) => (
           <Card key={item._id} className="mt-6 w-96">
             <CardHeader color="blue-gray" className="relative h-56">
               <img src={item?.properties[0]} alt="card-image" />
@@ -70,7 +72,7 @@ function UserListing() {
               <Button onClick={()=>handleDelete(item._id)}>Delete</Button>
             </CardFooter>
           </Card>
-        ))}
+        )))}
       </div>
     </div>
   );

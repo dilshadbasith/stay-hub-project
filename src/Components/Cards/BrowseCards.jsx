@@ -32,6 +32,8 @@ function BrowseCards() {
     ViewCards();
   }, []);
 
+
+
   return (
     <div>
       <Navigationbar />
@@ -68,7 +70,7 @@ function BrowseCards() {
             <p style={{ paddingLeft: "2rem" }}>About:{showcard?.description}</p>
           </div>
 
-          <BookingForm night={showcard?.price} listID={showcard?._id} />
+          <BookingForm night={showcard?.price} listID={showcard} />
         </div>
         <WorldMap />
       </div>

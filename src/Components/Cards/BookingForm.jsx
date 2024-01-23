@@ -5,10 +5,11 @@ import moment from "moment";
 import "../Cards/Cards.css";
 import Axios from "../../lib/Axios";
 import { useCookies } from "react-cookie";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { myContext } from "../Context";
 import { useNavigate } from "react-router-dom";
+import { BookingSuccess } from "../../Redux/Reducers/BookingReducer";
 
 const BookingForm = ({ night, listID}) => {
   const [checkInDate, setCheckInDate] = useState(new Date());
@@ -16,46 +17,47 @@ const BookingForm = ({ night, listID}) => {
     new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
   );
   const [days, setDays] = useState(1);
-  const [cookies] = useCookies(["access_token"]);
+  // const [cookies] = useCookies(["access_token"]);
   const {currentUser}= useSelector((state)=>state.user);
-  const {handleLoginOpen}=useContext(myContext)
+  // const {handleLoginOpen}=useContext(myContext)
   const navigate = useNavigate()
+  const dispatch =  useDispatch()
 
 
-  // const handleCheckInDateChange = (date) => {
-  //   setCheckInDate(date);
-  //   if (checkOutDate && date > checkOutDate) {
-  //     setCheckOutDate(null);
+  
+
+  const Reserve=()=>{
+    navigate(`/payment`)
+    const res = {
+      listingId: listID,
+      totalPrice: (night *days)+450,
+      startDate: checkInDate,
+      endDate: checkOutDate,
+      email:currentUser.email,
+    };
+    dispatch(BookingSuccess(res))
+  }
+  // const Reserve = () => {
+  //   if(currentUser){
+  //     const res = {
+  //       listingId: listID,
+  //       totalPrice: (night *days)+450,
+  //       startDate: checkInDate,
+  //       endDate: checkOutDate,
+  //       email:currentUser.email,
+  //     };
+  //     Axios.post("/api/users/reservations", res, {
+  //       headers: { Authorization: `Bearer ${cookies.access_token}` },
+  //     })
+  //       .then((res) => {
+  //         console.log(res);
+  //         navigate(`/payment`)
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }else{
+  //     handleLoginOpen()
   //   }
   // };
-
-  // const handleCheckOutDateChange = (date) => {
-  //   if (checkInDate && date < checkInDate) {
-  //     return;
-  //   }
-  //   setCheckOutDate(date);
-  // };
-  const Reserve = () => {
-    if(currentUser){
-      const res = {
-        listingId: listID,
-        totalPrice: (night *days)+450,
-        startDate: checkInDate,
-        endDate: checkOutDate,
-        email:currentUser.email,
-      };
-      Axios.post("/api/users/reservations", res, {
-        headers: { Authorization: `Bearer ${cookies.access_token}` },
-      })
-        .then((res) => {
-          console.log(res);
-          navigate(`/payment`)
-        })
-        .catch((err) => console.log(err));
-    }else{
-      handleLoginOpen()
-    }
-  };
 
   useEffect(() => {
     const calculateTotalDays = (checkInDate, checkOutDate) => {

@@ -59,8 +59,8 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/browsecard/:id" element={<BrowseCards />} />
           <Route path="/airbnbhome" element={<AirbnbYourHome />} />
+          <Route path="/browsecard/:id" element={<BrowseCards />} />
 
           <Route element={<PrivateRoute/>}>
             <Route path="/rentpage" element={<RentPage />} />
