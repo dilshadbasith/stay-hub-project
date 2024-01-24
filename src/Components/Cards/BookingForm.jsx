@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { BookingSuccess } from "../../Redux/Reducers/BookingReducer";
 
 const BookingForm = ({ night, listID}) => {
+  const { handleLoginOpen } = useContext(myContext);
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(
     new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
@@ -27,15 +28,19 @@ const BookingForm = ({ night, listID}) => {
   
 
   const Reserve=()=>{
-    navigate(`/payment`)
-    const res = {
-      listingId: listID,
-      totalPrice: (night *days)+450,
-      startDate: checkInDate,
-      endDate: checkOutDate,
-      email:currentUser.email,
-    };
-    dispatch(BookingSuccess(res))
+    if(currentUser){
+      navigate(`/payment`)
+      const res = {
+        listingId: listID,
+        totalPrice: (night *days)+450,
+        startDate: checkInDate,
+        endDate: checkOutDate,
+        email:currentUser.email,
+      };
+      dispatch(BookingSuccess(res))
+    }else{
+      handleLoginOpen()
+    }
   }
   // const Reserve = () => {
   //   if(currentUser){

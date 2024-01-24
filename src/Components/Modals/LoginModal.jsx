@@ -53,8 +53,8 @@ function LoginModal() {
         toast.success("Login Successfull!");
         navigate("/");
         setCookie("access_token", response.data.accessToken);
-        handleLoginOpen();
         dispatch(signinSuccess(response.data));
+        handleLoginOpen();
       }
     } catch (error) {
       if (error.response.status == 401) {

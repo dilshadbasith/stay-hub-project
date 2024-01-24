@@ -73,6 +73,7 @@ function Booking() {
             </div>
             <button className="cancel" onClick={() => handleDelete(item._id)}>
               Cancel Reservation
+              <span></span>
             </button>
           </div>
         ))
