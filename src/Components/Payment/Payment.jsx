@@ -42,16 +42,7 @@ const Payment = () => {
       .catch((err) => console.log(err));
   };
 
-  // useEffect(() => {
-  //     Axios.get(`/api/data/reservations/${currentUser._id}`, {
-  //       headers: { Authorization: `Bearer ${cookies.access_token}` },
-  //     })
-  //       .then((res) => {
-  //         // console.log(res.data.data);
-  //         setReservation(res.data.data);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }, []);
+
 
   const Razorpay = async (e) => {
     e.preventDefault();
