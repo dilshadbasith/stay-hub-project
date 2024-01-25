@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,58 +12,32 @@ import { myContext } from "../Context";
 import { useNavigate } from "react-router-dom";
 import { BookingSuccess } from "../../Redux/Reducers/BookingReducer";
 
-const BookingForm = ({ night, listID}) => {
+const BookingForm = ({ night, listID }) => {
   const { handleLoginOpen } = useContext(myContext);
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(
     new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
   );
   const [days, setDays] = useState(1);
-  // const [cookies] = useCookies(["access_token"]);
-  const {currentUser}= useSelector((state)=>state.user);
-  // const {handleLoginOpen}=useContext(myContext)
-  const navigate = useNavigate()
-  const dispatch =  useDispatch()
+  const { currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-
-  
-
-  const Reserve=()=>{
-    if(currentUser){
-      navigate(`/payment`)
+  const Reserve = () => {
+    if (currentUser) {
+      navigate(`/payment`);
       const res = {
         listingId: listID,
-        totalPrice: (night *days)+450,
+        totalPrice: night * days + 450,
         startDate: checkInDate,
         endDate: checkOutDate,
-        email:currentUser.email,
+        email: currentUser.email,
       };
-      dispatch(BookingSuccess(res))
-    }else{
-      handleLoginOpen()
+      dispatch(BookingSuccess(res));
+    } else {
+      handleLoginOpen();
     }
-  }
-  // const Reserve = () => {
-  //   if(currentUser){
-  //     const res = {
-  //       listingId: listID,
-  //       totalPrice: (night *days)+450,
-  //       startDate: checkInDate,
-  //       endDate: checkOutDate,
-  //       email:currentUser.email,
-  //     };
-  //     Axios.post("/api/users/reservations", res, {
-  //       headers: { Authorization: `Bearer ${cookies.access_token}` },
-  //     })
-  //       .then((res) => {
-  //         console.log(res);
-  //         navigate(`/payment`)
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }else{
-  //     handleLoginOpen()
-  //   }
-  // };
+  };
 
   useEffect(() => {
     const calculateTotalDays = (checkInDate, checkOutDate) => {
@@ -83,6 +58,7 @@ const BookingForm = ({ night, listID}) => {
           onChange={(date) => setCheckInDate(date)}
           dateFormat="dd/MM/yyyy"
           className="date-picker"
+          minDate={new Date()} // Set minDate to the current date
         />
       </div>
       <div className="form-group">
@@ -92,6 +68,7 @@ const BookingForm = ({ night, listID}) => {
           onChange={(date) => setCheckOutDate(date)}
           dateFormat="dd/MM/yyyy"
           className="date-picker"
+          minDate={checkInDate} // Set minDate to the selected checkInDate
         />
       </div>
       <div className="flex justify-center">
@@ -110,7 +87,7 @@ const BookingForm = ({ night, listID}) => {
       </div>
       <div className="flex justify-between">
         <p className="font-bold">Total Amount:</p>
-        <p className="font-bold">₹{(night * days )+ 450}</p>
+        <p className="font-bold">₹{(night * days) + 450}</p>
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import moment from "moment";
 
+
 const Payment = () => {
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
@@ -88,6 +89,7 @@ const Payment = () => {
         color: "#FCE22A",
       },
     };
+  
     var pay = new window.Razorpay(options);
     pay.open();
   };
