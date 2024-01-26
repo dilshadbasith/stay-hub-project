@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import moment from "moment";
 
-
 const Payment = () => {
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
@@ -38,12 +37,11 @@ const Payment = () => {
     })
       .then((res) => {
         console.log(res);
-        navigate('/trips')
+        toast.success("Reservation Successfull!")
+        navigate("/trips");
       })
       .catch((err) => console.log(err));
   };
-
-
 
   const Razorpay = async (e) => {
     e.preventDefault();
@@ -60,21 +58,20 @@ const Payment = () => {
         const { razorpay_payment_id: payment_id } = response;
         console.log(payment_id, "payment ID");
         if (response) {
-          Reserve()
-            const updateStatus = Axios.post(
-              "/api/users/payments",
-              {
-                payment_id,
-                hotelName,
-                currentUser,
-                currentBooking,
-                totalPrice,
-              },
-              {
-                headers: { Authorization: `Bearer ${cookies.access_token}` },
-              }
-            );
-        
+          Reserve();
+          const updateStatus = Axios.post(
+            "/api/users/payments",
+            {
+              payment_id,
+              hotelName,
+              currentUser,
+              currentBooking,
+              totalPrice,
+            },
+            {
+              headers: { Authorization: `Bearer ${cookies.access_token}` },
+            }
+          );
         }
       },
       prefill: {
@@ -89,7 +86,7 @@ const Payment = () => {
         color: "#FCE22A",
       },
     };
-  
+
     var pay = new window.Razorpay(options);
     pay.open();
   };
@@ -186,12 +183,6 @@ const Payment = () => {
           </Card>
         </div>
       </div>
-      {/* <div style={{marginTop:"1rem"}}>
-        <Footer/>
-      </div>
-      <div>
-        <Socialmedia/>
-      </div> */}
     </div>
   );
 };

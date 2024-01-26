@@ -50,7 +50,7 @@ function Booking() {
       {reservation?.length === 0 ? (
         <h1 className="no-list">No Bookings!</h1>
       ) : (
-        reservation?.map((item, i) => (
+        reservation?.slice()?.reverse()?.map((item, i) => (
           <div className="parent-div-card">
             <div key={i} className="main-card">
               <div style={{ fontWeight: "bold" }}>{item?.listingId?.title}</div>
