@@ -14,7 +14,6 @@ function Booking() {
     const list = await Axios.get(`/api/data/reservations/${currentUser._id}`, {
       headers: { Authorization: `Bearer ${cookies.access_token}` },
     });
-    // console.log(list.data);
     setReservation(list.data.data);
   }
 
