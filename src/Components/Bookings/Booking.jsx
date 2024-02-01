@@ -4,6 +4,8 @@ import Navigationbar from "../Header/Navigationbar";
 import "../Bookings/Bookings.css";
 import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
+import moment from "moment";
+
 
 function Booking() {
   const [reservation, setReservation] = useState();
@@ -55,11 +57,11 @@ function Booking() {
               <div style={{ fontWeight: "bold" }}>{item?.listingId?.title}</div>
               <div>
                 <p>Checkin date:</p>
-                {item.startDate}
+                {moment(item?.startDate).format("DD/MM/YY")}
               </div>
               <div>
                 <p>Checkout date:</p>
-                {item.endDate}
+                {moment(item?.endDate).format("DD/MM/YY")}
               </div>
               <div>₹{item.totalPrice}</div>
               <div>
