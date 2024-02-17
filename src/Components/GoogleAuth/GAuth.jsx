@@ -10,6 +10,7 @@ import { myContext } from "../Context";
 import { useCookies } from "react-cookie";
 import google from "../Assets/google-icon.png";
 import { toast } from "react-toastify";
+import { Button } from "@material-tailwind/react";
 
 function GAuth() {
   const dispatch = useDispatch();
@@ -55,14 +56,16 @@ function GAuth() {
   };
   return (
     <div>
-      <button
+      <Button
+      color="white"
+      fullWidth
         onClick={handleGoogleClick}
         type="button"
-        className="w-full md:w-[18.4rem] border border-black rounded-lg  px-8 py-1.5 flex justify-center gap-1"
+        className=" flex items-center justify-center border-[.05rem] border-black font-bold"
       >
         <img src={google} alt="image" className="g-img" />
         <h1>Continue with Google</h1>
-      </button>
+      </Button>
     </div>
   );
 }
