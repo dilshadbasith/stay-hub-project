@@ -99,10 +99,12 @@
   gap: 2rem;
   background-color: rgb(255, 255, 255);
   align-items: center;
-  margin: 3% 30%;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  justify-content: center;
+  max-width: 30rem;
+  max-height: 20rem;
   border-radius: 2rem;
   box-shadow: 0 3px 3px rgb(0 0 0 / 10%), 0 4px 12px rgb(0 0 0 / 10%),
     0 -3px 3px rgb(0 0 0 / 10%), 0 -4px 12px rgb(0 0 0 / 10%);
+  margin: 0 auto;
+  height: 100vh;
 }

@@ -160,23 +160,31 @@ export default function RentPage() {
             <h1 className="rent-h1">Rent your Property</h1>
             <h3 className="rent-categ">Give Information About It.</h3>
             <div
-              // style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+ 
               className="counter-main-div"
             >
               <div
-                style={{ display: "flex",gap:"15rem", alignItems: "center" ,justifyContent:"space-between"}}
+                style={{
+                  display: "flex",
+                  justifyContent:"space-around",
+                  alignItems: "center",
+                }}
               >
-                <div><h4 style={{ fontSize: "1.5rem" }}>Bedrooms:</h4></div>
-                <div><Counter id="roomCount" onChange={handleCountChange} /></div>
+                <div>
+                  <h4 style={{ fontSize: "1.5rem" }}>Bedrooms:</h4>
+                </div>
+                <div>
+                  <Counter id="roomCount" onChange={handleCountChange} />
+                </div>
               </div>
               <div
-                style={{ display: "flex", gap: "15rem", alignItems: "center" }}
+                style={{ display: "flex", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Bathrooms:</h4>
                 <Counter id="bathroomCount" onChange={handleCountChange} />
               </div>
               <div
-                style={{ display: "flex", gap: "12rem", alignItems: "center" }}
+                style={{ display: "flex", alignItems: "center" }}
               >
                 <h4 style={{ fontSize: "1.5rem" }}>Guest Capacity:</h4>
                 <Counter id="guestCount" onChange={handleCountChange} />
