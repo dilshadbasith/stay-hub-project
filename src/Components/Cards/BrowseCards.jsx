@@ -51,11 +51,11 @@ function BrowseCards() {
             </div>
             <div className="img-sub-div">
               <img src={showcard?.properties[1]} alt="image" className="img2" />
-              <img src={showcard?.properties[2]} alt="image" className="img2" />
+              <img src={showcard?.properties[2]} alt="image" className="img3" />
             </div>
             <div className="img-sub-div">
-              <img src={showcard?.properties[3]} alt="image" className="img2" />
-              <img src={showcard?.properties[4]} alt="image" className="img2" />
+              <img src={showcard?.properties[3]} alt="image" className="img4" />
+              <img src={showcard?.properties[4]} alt="image" className="img5" />
             </div>
           </div>
         </div>

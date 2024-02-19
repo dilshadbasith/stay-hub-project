@@ -57,7 +57,8 @@
 .img1{
   height: 25rem;
   width: 40rem;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 .img-main-div{
   display: flex;
@@ -66,7 +67,20 @@
 .img2{
   height: 12rem;
   width: 20rem;
-  border-radius: .5rem;
+}
+.img3{
+  height: 12rem;
+  width: 20rem;
+}
+.img4{
+  height: 12rem;
+  width: 20rem;
+  border-top-right-radius: .5rem;
+}
+.img5{
+  height: 12rem;
+  width: 20rem;
+  border-bottom-right-radius: .5rem;
 }
 .img-sub-div{
   display: flex;
