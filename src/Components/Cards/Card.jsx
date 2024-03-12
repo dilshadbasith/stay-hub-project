@@ -1,5 +1,3 @@
-
-
 import React, { useContext, useEffect, useState } from "react";
 import "../Cards/Cards.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,12 +13,15 @@ import Axios from "../../lib/Axios";
 import { toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 import { addToFav, removeFromFav } from "../../Redux/Reducers/UserReducer";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function Card({ card }) {
   const [isClicked, setIsClicked] = useState(false);
   const [cardList, setCardList] = useState([]);
   const navigate = useNavigate();
   const [cookies] = useCookies(["access_token"]);
+  
 
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
@@ -131,6 +132,7 @@ function Card({ card }) {
         {" "}
         <span style={{ fontWeight: "600" }}>₹{card.price}</span> night{" "}
       </p>
+      
     </div>
   );
 }

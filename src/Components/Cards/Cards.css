@@ -11,9 +11,12 @@
 .card-img {
     height: 270px;
     width: 270px;
-    object-fit:cover;
-  
-    
+    object-fit:cover;  
+  }
+.card-img-sk {
+    height: 270px;
+    width: 270px;
+     
   }
 .card-info{
     display: flex;
@@ -38,6 +41,16 @@
     margin-bottom: 2rem;
     /* z-index: -1; */
   }
+  .property-card-sk {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 2rem;
+    padding: 3rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* z-index: -1; */
+  }
+  
   .property-card .swiper-pagination-bullet-active {
     background-color: white !important;
   }
