@@ -25,7 +25,7 @@ function ListCards({ searchQuery }) {
       } else {
         setCardList([]);
       }
-    },2000)
+    },1000)
   }, [searchQuery]);
   // console.log(cardList, "hello");
 
