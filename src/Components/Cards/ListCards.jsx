@@ -12,7 +12,7 @@ function ListCards({ searchQuery }) {
   // console.log({searchQuery});
 
   async function Cards() {
-    const list = await Axios.get(`/api/data/listings?category=${searchQuery}`);
+    const list = await Axios.get(`/api/data/listings?category=${searchQuery}`)
     setCardList(list.data.data);
     
   }
@@ -32,20 +32,37 @@ function ListCards({ searchQuery }) {
   return (
     <>
       
-        {/* <div className="property-card-sk">
-          {cardList.map((item) => (
+       
+     
+        <div className="cards-flex">
+          {cardList.length === 0 && searchQuery ? (
+            // <h1 className="no-list">No Listings Found!</h1>
+        <div className="property-card-sk">
             <div className="property-card">
               <Skeleton height={270} width={270} />
               <Skeleton width={270} />
               <Skeleton width={270} />
               <Skeleton width={270} />
-            </div>
-          ))}
-        </div> */}
-     
-        <div className="cards-flex">
-          {cardList.length === 0 && searchQuery ? (
-            <h1 className="no-list">No Listings Found!</h1>
+            </div>    
+            <div className="property-card">
+              <Skeleton height={270} width={270} />
+              <Skeleton width={270} />
+              <Skeleton width={270} />
+              <Skeleton width={270} />
+            </div>    
+            <div className="property-card">
+              <Skeleton height={270} width={270} />
+              <Skeleton width={270} />
+              <Skeleton width={270} />
+              <Skeleton width={270} />
+            </div>    
+            <div className="property-card">
+              <Skeleton height={270} width={270} />
+              <Skeleton width={270} />
+              <Skeleton width={270} />
+              <Skeleton width={270} />
+            </div>    
+        </div>
           ) : (
             cardList
               .filter((item) => {
