@@ -1,0 +1,23 @@
+.large-circle,.small-circle{
+    width: 40px;height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #ff385c;
+    position: fixed;
+    z-index: 100000;
+    pointer-events: none;
+    
+}
+.small-circle{
+    width: 8px;height: 8px;
+    background-color: #ff385c;  
+    box-shadow: 0 0 5px rgba(255, 56, 92, 0.8), 
+    0 0 10px rgba(255, 56, 92, 0.6), 
+    0 0 15px rgba(255, 56, 92, 0.4), 
+    0 0 20px rgba(255, 56, 92, 0.2);
+}
+@media (max-width: 668px) {
+    .small-circle,.large-circle{
+      display: none;
+    }
+}

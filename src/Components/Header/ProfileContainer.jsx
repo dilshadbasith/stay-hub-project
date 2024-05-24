@@ -2,7 +2,6 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-// import { IoPersonCircleSharp } from "react-icons/io5";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useContext } from "react";
 import { myContext } from "../Context";

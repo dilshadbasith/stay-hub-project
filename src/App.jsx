@@ -25,6 +25,7 @@ import UserListing from "./Components/UserComponent/UserListing";
 import Favorites from "./Components/UserComponent/Favorites";
 import Payment from "./Components/Payment/Payment";
 import PrivateRoute from "./Components/PrivateRoute";
+import Cursor from "./Components/Cursor/Cursor";
 
 function App() {
   const [cards, setCards] = useState(list);
@@ -57,6 +58,7 @@ function App() {
           setFavorites,
         }}
       >
+        <Cursor/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/airbnbhome" element={<AirbnbYourHome />} />
